@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Responsive Layout Project</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery.js" ></script>
+</head>
+<body>
+
+	<div id="output_width"></div>
+	
+	<div id="container">
+		<header class="main-header">
+			<img id="logo" src="images/logo.png" alt="Resproject" />
+			<nav class="main-nav">
+				<ul>
+					<li><a href="" class="active">Home</a></li>
+					<li><a href="">Learn</a></li>
+					<li><a href="">Brainstorm</a></li>
+					<li><a href="">Create</a></li>
+					<li><a href="">Collaborate</a></li>
+					<li><a href="">Teach</a></li>
+				</ul>
+			</nav>
+		</header>	
+
+		<div id="main">
+			<div id="content">
+				<article class="art1">
+					<header class="art-header">
+						<h2 class="title">
+							<a href="#">First Post</a>
+						</h2>
+						<span>Created By: Geekgosh on February 20, 2017</span>
+					</header>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem expedita repellendus harum, cupiditate veritatis neque, ab molestiae tempore voluptas suscipit ipsa error ratione numquam molestias a cumque quisquam eaque alias.</p>
+					<a class="readmore">Read more</a>
+				</article>
+
+				<article class="art2">
+					<header class="art-header">
+						<h2 class="title">
+							<a href="#">Second Post</a>
+						</h2>
+						<span>Created By: Geekgosh on February 20, 2017</span>
+					</header>
+					<p>Dolores expedita nihil repudiandae ad molestias inventore distinctio officiis reiciendis ducimus asperiores? Alias ipsum voluptatum ab expedita magnam deserunt officia odit tempora optio, fuga, magni totam reprehenderit aperiam commodi ex.</p>
+					<a class="readmore">Read more</a>
+				</article>
+			</div>
+
+			<aside id="sidebar">
+				<div class="block">
+					<h2>Top Sidebar</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+
+				<div class="block">
+					<h2>Mid Sidebar</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+
+				<div class="block">
+					<h2>Bottom Sidebar</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+			</aside>
+
+		</div>
+
+		<div class="clr">
+			
+		</div>
+
+		<footer>
+			<p>Copyright &copy; 2017 | All right reserved.</p>
+		</footer>
+
+	</div>
+
+	<script type="text/javascript">
+		var showWidth = 1;
+		if(showWidth == 1) {
+			$(document).ready(function() {
+				$(window).resize(function() {
+					var width = $(window).width();
+					$("#output_width").html("Window Width: " + width.toString());
+				})
+			});
+		}
+	</script>
+
+</body>
+</html>

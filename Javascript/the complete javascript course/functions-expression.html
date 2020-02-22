@@ -1,0 +1,23 @@
+<script type="text/javascript">
+	
+	function game() {
+		var score = Math.floor(Math.random() * 10);;
+		console.log(score >= 5);
+	}
+	game();
+
+	(
+		function game() {
+		var score = Math.random() * 10;;
+		console.log(score >= 5);
+	})();
+
+
+	// not reusable
+	(
+		function game(goodLuck) {
+		var score = Math.random() * 10;;
+		console.log(score >= 5 - goodLuck);
+	})(5);
+
+</script>

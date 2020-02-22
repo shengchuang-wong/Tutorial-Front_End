@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basic Animating with jquery</title>
+
+	<style type="text/css">
+		#dragon {
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			opacity: 0;
+		}
+
+		#dragon1 {
+			position: absolute;
+			left: 100px;
+			top: 300px;
+			opacity: 0;
+		}
+
+		#dragon2 {
+			position: absolute;
+			left: 100px;
+			top: 500px;
+			opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	
+	<img id="dragon" src="dragon.png" width="200" height="140">
+
+	<img id="dragon1" src="dragon.png" width="200" height="140">
+
+	<img id="dragon2" src="dragon.png" width="200" height="140">
+
+	<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+  	$("#dragon").animate({
+  		left: 800,
+  		opacity: 1,
+  		width: 400,
+  		height: 250
+  	}, 1000);
+
+  	 $("#dragon1").animate({
+  		left: 800,
+  		opacity: 1,
+  		width: 400,
+  		height: 250
+  	}, 1000, "linear"); //swing, easeInOutQuad
+
+  	 $("#dragon2").animate({
+  	 	left: 700,
+  	 	width: 400,
+  	 	height: 250,
+  	 	opacity: 1
+  	 }, {
+  	 	specialEasing: {
+  	 		left: "linear",
+  	 		width: "swing",
+  	 		height: "swing"
+  	 	}
+  	 });
+  </script>
+</body>
+</html>

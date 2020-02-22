@@ -1,0 +1,96 @@
+<script type="text/javascript">
+	
+	// ES5
+
+	var expense = {
+		type: 'Business',
+		amount: '$45 USD'
+	};
+
+	var type = expense.type;
+	var amount = expense.amount;
+
+	// ES6
+
+	const { type_es6, amount_es6 } = expense;
+
+	// ES5 
+
+	var savedFiled = {
+		extension: 'jpg',
+		name: 'repost',
+		size: 14040
+	};
+
+	// ES5 Usage
+
+	function fileSummary(file) {
+		return `The file ${file.name}.${file.extension} is size of ${file.size}`;
+	}
+
+	console.log(fileSummary(savedFiled));
+
+	// ES6 Usage
+
+	function fileSummary1({ name, extension, size }, {color}) {
+		return `${color} The file ${name}.${extension} is size of ${size}`;
+	}
+
+	console.log(fileSummary1(savedFiled, {color: 'red'}));
+
+	const companies = [
+		'Apple',
+		'Facebook',
+		'Google'
+	];
+
+	const { length } = companies;
+
+	console.log(length);
+
+	const [name, name2, ...rest] = companies;
+	console.log(name, name2, rest);
+
+
+	/////////////////////////////////////////////////////////////
+
+	const companyList = [
+		{ name: 'Apple', the_location: 'San Francisco' },
+		{ name: 'Facebook', the_location: 'Menlo Park' },
+		{ name: 'Google', the_location: 'Mountain View' }
+	];	
+
+	const [{ the_location }] = companyList;
+	// read from outer element, companyList[0].location
+	// [] = extract the first element
+
+	console.log(the_location);
+
+	/////////////////////////////////////////////////////////////
+
+	const Google = {
+		locations: ['Mountain View', 'New York', 'London']
+	};
+
+	const { locations: [locationSelected] } = Google;
+
+	console.log(locationSelected);
+
+	/////////////////////////////////////////////////////////////
+
+
+	// Advance Concept
+
+	const points = [
+		[4, 5],
+		[10, 1],
+		[0, 40]
+	];
+
+	var point = points.map(([x, y]) => {
+		return { x, y };
+	});
+
+	console.log(point);
+
+</script>

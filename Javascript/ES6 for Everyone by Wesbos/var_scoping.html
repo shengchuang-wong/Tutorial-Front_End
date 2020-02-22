@@ -1,0 +1,32 @@
+<script type="text/javascript">
+// Var is functional scope
+
+// E.g. 1 var only accessible in function
+
+function setWidth() {
+	var width = 100;
+	console.log(width);
+}
+
+// console.log(width); // this will not working
+
+// E.g. 2 var leak into outisde since if is not a function
+
+// console.log dogYears you will still see dogYears is accessible
+
+// Let is block scope, {} is a block
+
+// var age = 100;
+// if (age > 12) {
+// 	var dogYears = age * 7;
+// 	console.log(dogYears);
+// }
+
+// change into let
+
+var age = 100;
+if (age > 12) {
+	let dogYears = age * 7;
+	console.log(dogYears);
+}
+</script>

@@ -1,0 +1,65 @@
+<script type="text/javascript">
+	
+	// let is block scope, therefore, it cannot be 
+	// redefine using let variableName in the same block, however, can be in different block
+
+	let points = 50;
+	let winner = false;
+
+	if(points > 20) {
+		let winner = true;
+		console.log(winner);
+	}
+
+	console.log(winner);
+
+	// wrong, cannot exist in same
+
+	// let winner = false;
+	// let winner = true;
+
+	// correct
+
+	let me = 2;
+	console.log(me);
+	me = 3;
+	console.log(me);
+
+	// wrong
+
+	let you = 2;
+
+	if(you > 0) {
+		you = 3;
+		console.log(you);
+	}
+	console.log(you);
+
+	// For const, object can be change it property
+
+	const person = {
+		name: 'Wong',
+		age: 28
+	}
+
+	// try person.age = 100;
+
+	// If you want to const a object's property, use this
+	Object.freeze(person);
+
+	// Traditional immediate scope
+	(function() {
+		var name = 'Wong2';
+		console.log(name);
+	})();
+
+	// Now
+
+	{
+		const name = 'Wong3';
+		console.log(name);
+	}
+
+	// Foor loop with let instead of var
+
+</script>

@@ -1,0 +1,72 @@
+<script type="text/javascript">
+	const people = new Set();
+	people.add('Wes');
+	people.add('Snickers');
+	people.add('Kait');
+	people.add('Josh');
+
+	people.delete('Wes');
+
+	people.keys();
+
+	people.entries();
+
+	const it = people.values();
+	console.log(it.next());
+	console.log(it.next());
+	console.log(it.next());
+	console.log(it.next());
+
+	for (const person of people) {
+		console.log(person);
+	}
+
+
+	// another example
+	const students = new Set(['Wes', 'Kara', 'Tony']);
+
+	const dogs = ['Snickers', 'Sunny'];
+	const dogSet = new Set(dogs);
+
+	console.log(students.has('Wes'));
+
+	// This is will not student name 'Wes', since property inside sets are unique
+	students.add('Wes');
+	console.log(students);
+
+
+	// Sets example with Brunch
+	const brunch = new Set();
+
+	// as people start coming in
+	brunch.add('Wes');
+	brunch.add('Sarah');
+	brunch.add('Simone');
+
+	// ready to open
+	const line = brunch.values();
+	console.log(line.next().value);
+	console.log(line.next().value);
+
+	brunch.add('Heather');
+	brunch.add('Snickers');
+	console.log(line.next().value);
+	console.log(line.next().value);
+	console.log(line.next().value);
+
+
+	// WeakSets - can only contains object
+	// cannot loop over, cannot enumerate
+	// no .clear method
+	let dog1 = { name: 'Snickers', age: 3 };
+	let dog2 = { name: 'sunny', age: 1 };
+
+	const weakSauce = new WeakSet([dog1, dog2]);
+
+	console.log(weakSauce);
+	dog1 = null;
+	// wait for second, then will only be clear
+	console.log(weakSauce);
+
+	// weakSauce.add(dog2);
+</script>

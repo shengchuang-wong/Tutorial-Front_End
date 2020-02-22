@@ -1,0 +1,13 @@
+- forEach <<< go thorugh all
+
+- map <<< map element
+
+- filter <<< filter all element
+
+- find <<< similiar like filter, but once a element is found, loop terminated
+
+- every <<< loop through all records and return boolean by is all records fulfil the requirements
+
+- some <<< loop through all records and return boolean by is some of the records fulfil the requirement
+
+- reduce <<< hard to explain

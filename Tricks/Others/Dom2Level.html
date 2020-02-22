@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div id="box">
+	<input id="btn1" type="submit" value="Submit"/>
+   	<input id="btn2" type="submit" value="Submit"/>
+    <a id="go" href="http://www.foundragon.com">Foundragon</a>
+</div>
+    <script>
+	
+		function showMessage(event) {
+			//alert(event.target.nodeName);
+			event = event || window.event;
+			var ele = event.target || event.srcElement;
+			alert(ele);
+			event.stopPropagation();
+		}
+		
+		function showBox() {
+			alert("This triggered click box");
+		}
+		
+		function stopGoto(event) {
+			event.stopPropagation();
+			event.preventDefault();
+		}
+		
+    	var btn1 = document.getElementById('btn1');
+		btn1.addEventListener('click', showMessage, false);
+		btn1.addEventListener('click', function() {
+			alert(this.value);
+		}, false);
+		
+		btn1.removeEventListener('click', showMessage, false);
+		var btn2 = document.getElementById('btn2');
+		var box = document.getElementById('box');
+		var go = document.getElementById('go');
+		
+		var eventUtil = {
+			addHandler:function(element, type, handler) {
+				if(element.addEventListener) {
+					element.addEventListener(type, handler, false);
+				} else if(element.attachEvent) {
+					element.attachEvent('on'+type, handler);
+				} else {
+					element['on'+type] = hander;
+				}
+			},
+			
+			removeHandler:function(element, type, handler) {
+				if(element.removeEventListener) {
+					element.removeEventListener(type, handler, false);
+				} else if(element.detachEvent) {
+					element.detachEvent('on'+type, handler);
+				} else {
+					element['on'+type] = null;
+				}
+			}
+			
+		}
+		
+		//btn2.addEventListener('click', showMessage, false);
+		eventUtil.addHandler(btn2, 'click', showMessage);
+		eventUtil.addHandler(box, 'click', showBox);
+		eventUtil.addHandler(go, 'click', stopGoto);
+		//eventUtil.removeHandler(btn2, 'click', showMessage);
+    </script>
+</body>
+</html>

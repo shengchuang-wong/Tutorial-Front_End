@@ -1,0 +1,23 @@
+<script type="text/javascript">
+
+	// ES5 - Traditional approach of generate message with variable
+	
+	function getMessage() {
+		const year = new Date().getFullYear();
+
+		return "The year is " + year;
+	}
+
+	console.log(getMessage());
+
+	// ES6 - Use template strings
+
+	function getMessage1() {
+		const year = new Date().getFullYear();
+
+		return `The year is ${year}`;
+	}
+
+	console.log(getMessage1());
+
+</script>

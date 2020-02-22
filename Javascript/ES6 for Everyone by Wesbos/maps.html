@@ -1,0 +1,70 @@
+<style>
+   button {
+    font-size: 50px;
+    margin:10px;
+   }
+</style>
+<body>
+<button>Snakes 🐍</button>
+<button>Cry 😂</button>
+<button>Ice Cream 🍦</button>
+<button>Flamin' 🔥</button>
+<button>Dancer 💃</button>
+<script type="text/javascript">
+	
+	const dogs = new Map();
+
+	dogs.set('Snickers', 3);
+	dogs.set('Sunny', 2);
+	dogs.set('Hugo', 10);
+
+	dogs.forEach((val, key) => console.log(val, key));
+
+	for (const dog of dogs) {
+		console.log(dog);
+	}
+
+	for (const [key, val] of dogs) {
+		console.log(key, val);
+	}
+
+	dogs.clear();
+
+	// Map metadata with DOM NODE Keys
+	const clickCounts = new Map();
+	const buttons = document.querySelectorAll('button');
+
+	buttons.forEach(button => {
+		clickCounts.set(button, 0);
+		button.addEventListener('click', function() {
+			const val = clickCounts.get(this);
+			console.log(val);
+			clickCounts.set(this, val + 1);
+			console.log(clickCounts);
+		});
+	}); 
+
+	console.log(clickCounts);
+
+
+	// WeakMap's concept is similar with WeakSets
+	const dog1 = { name: 'Snickers' };
+	const dog2 = { name: 'Sunny' };
+
+	const strong = new Map();
+	const weak = new WeakMap();
+
+	strong.set(dog1, 'Snickers is the best!');
+	weak.set(dog2, 'Sunny is the 2nd best!');
+
+	// strong.size <<< valid
+	// weak.size <<< could not get the size
+
+	dog1 = null;
+	dog2 = null;
+
+	// strong still contain the item
+	// weak does not contain the item anymore
+
+</script>
+</body>

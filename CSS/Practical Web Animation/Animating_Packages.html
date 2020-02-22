@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style type="text/css">
+	
+	body {
+		padding: 20px;
+	}
+
+	h2 {
+		font-family: "Arvo", verdana, serif;
+		text-transform: uppercase;
+		text-align: center;
+		color: #325d88;
+		margin-bottom: 20px;
+	}
+
+	.pricing {
+		width: 900px;
+		margin: 0 auto;
+	}
+
+	.pricing .panel {
+		float: left;
+		width: 300px;
+		border-radius: 0;
+		text-align: center;
+		transition: all .5s;
+		cursor: pointer;
+	}
+
+	.panel-default > .panel-heading {
+		padding: 2px;
+		background-color: white;
+	}
+
+	.panel-default > .panel-heading h3 {
+		background-color: #325d88;
+		color: white;
+		padding: 20px 10px;
+		font-family: "Arvo", verdana, serif;
+		font-weight: 400;
+		font-size: 16px;
+		margin: 0;
+		text-transform: uppercase;
+		text-shadow: 1px 1px 4px #000;
+		position: relative;
+		transition: all .5s;
+	}
+
+	.panel-default > .panel-heading h3 span {
+		display: block;
+		margin-top: 6px;
+		font-size: 28px;
+		font-weight: 700;
+	}
+
+	h3 .fa-check {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		text-shadow: none;
+		opacity: 0;
+	}
+
+	.panel .panel-body {
+		padding: 2px;
+		background-color: white;
+		height: 300px;
+	}
+
+	.table-container {
+		background-color: #eee;
+		background-image: linear-gradient(#f0f0fa, #d0d0d5);
+		height: 100%
+	}
+
+	.panel-body .table th {
+		font-family: "Arvo", serif;
+		font-size: 18px;
+		font-weight: 400;
+		color: #555;
+		text-align: center;
+	}
+
+	.panel.active {
+		box-shadow: 0 0 2px #999;
+		margin-top: -10px;
+		transition: all .5s;	
+	}
+
+	.panel.active h3 {
+		background-color: orange;
+	}
+
+	.active .fa-check {
+		opacity: 1;
+	}
+
+</style>
+
+<body>
+
+	<div class="pricing">
+		<h2>Select a Package Below</h2>
+
+		<div class="panel panel-default option-basic active">
+			<div class="panel-heading">
+				<h3>
+					Basic Package
+					<span class="price">Free</span>
+					<i class="fa fa-check"></i>
+				</h3>
+			</div>
+			<div class="panel-body">
+				<div class="table-container">
+					<table class="table">
+						<thead><tr><th>FEATURES</th></tr></thead>
+						<tr>
+							<td>200 MB Sotrage</td>
+						</tr>
+						<tr>
+							<td>1 page view per month</td>
+						</tr>
+						<tr>
+							<td>Unlimited Desire for something</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default option-starter">
+			<div class="panel-heading">
+				<h3>
+					Basic Package
+					<span class="price">$4.99</span>
+					<i class="fa fa-check"></i>
+				</h3>
+			</div>
+			<div class="panel-body">
+				<div class="table-container">
+					<table class="table">
+						<thead><tr><th>FEATURES</th></tr></thead>
+						<tr>
+							<td>10 GB Sotrage</td>
+						</tr>
+						<tr>
+							<td>1000 page views per month</td>
+						</tr>
+						<tr>
+							<td>Insatiable Desire for a little more</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default option-premoium">
+			<div class="panel-heading">
+				<h3>
+					Basic Package
+					<span class="price">$99.99</span>
+					<i class="fa fa-check"></i>
+				</h3>
+			</div>
+			<div class="panel-body">
+				<div class="table-container">
+					<table class="table">
+						<thead><tr><th>FEATURES</th></tr></thead>
+						<tr>
+							<td>Enter card information to see price</td>
+						</tr>
+						<tr>
+							<td>100 GB Storage</td>
+						</tr>
+						<tr>
+							<td>Unlimited Page Views</td>
+						</tr>
+						<tr>
+							<td>Finally, some satisfaction!</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script
+	  src="http://code.jquery.com/jquery-3.1.1.min.js"
+	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	  crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		
+		$(".panel").click(function() {
+			$(".panel").removeClass("active");
+			$(this).addClass("active");
+		});
+
+	</script>
+
+</body>
+</html>

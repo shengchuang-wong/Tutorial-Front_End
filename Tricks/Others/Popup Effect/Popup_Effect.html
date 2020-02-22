@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Popup Effect</title>
+<style type="text/css">
+	#mask {
+		display: none;
+		background: #000;
+		opacity: 0.75;
+		filter: alpha(opacity=75);
+		height: 1000px;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 1000;
+	}
+	
+	#login {
+		display: none;
+		position: fixed;
+		left: 30%;
+		top: 30%;
+		z-index: 1001;
+	}
+	
+	.loginCon {
+		width: 670px;
+		height: 380px;
+		background: url(img/loginbg.png) no-repeat;
+	}
+	
+	#close {
+		width: 30px;
+		height: 30px;
+		background: url(img/close.png) no-repeat;
+		cursor: pointer;
+		position: absolute;
+		right: 5px;
+		top: 5px;
+	}
+</style>
+<script type="text/javascript">
+
+	function openNew() {
+		
+		var oBtn  = document.getElementById("btnLogin");
+			oBtn.onclick = function() {
+				
+			}
+		//Get Webpage Height and Width
+		var sHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+		var sWidth = document.documentElement.scrollWidth || document.body.scrollWidth;
+		//Get Viewable Height and Width
+		var wHeight = document.documentElement.clientHeight || document.body.clientHeight;
+		//Normally Viewable Height and Width are the same
+		//var wWidth = document.documentElement.clientWidth || document.body.clientWidth;
+		
+		var oMask = document.createElement("div");
+			oMask.id = "mask";
+			oMask.style.display = "none";
+			oMask.style.height = sHeight + "px";
+			oMask.style.width = sWidth + "px";
+		
+		document.body.appendChild(oMask);
+		
+		var oLogin = document.createElement("div");
+			oLogin.id = "login";
+			oLogin.style.display = "none";
+			oLogin.innerHTML = "<div class='loginCon'><div id='close'></div></div>";
+			document.body.appendChild(oLogin);
+			
+		//Get Login Height and Width
+		var dHeight = oLogin.offsetHeight;
+		var dWidth = oLogin.offsetWidth;
+		
+			oLogin.style.left = (sWidth - dWidth)/2 + "px";
+			oLogin.style.top = (wHeight - dHeight)/2 + "px";
+		
+		var oClose = document.getElementById("close");
+			oClose.onclick = function() {
+				document.getElementById("mask").style.display = "none";
+				document.getElementById("login").style.display = "none";
+			}
+			
+		var LoginBtn = document.getElementById("btnLogin");
+			LoginBtn.onclick = function() {
+				document.getElementById("mask").style.display = "block";
+				document.getElementById("login").style.display = "block";
+			}	
+		
+	}
+
+	window.onload = function() {
+		openNew();
+	}
+</script>
+</head>
+
+<body>
+	<button style="position: absolute; top: 20px; left: 20px" id="btnLogin">Login</button>
+	<img src="../Back to Top/images/tb_bg.jpg" />
+	<div id="mask"></div>
+    <div id="login">
+    	<div class="loginCon">
+        	<div id="close">
+            
+            </div>
+        </div>
+    </div>-->
+</body>
+</html>

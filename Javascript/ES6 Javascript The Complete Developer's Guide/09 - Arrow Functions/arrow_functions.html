@@ -1,0 +1,70 @@
+<script type="text/javascript">
+	
+	// ES5 - Traditional function
+
+	const add = function(a, b) {
+		return a + b;
+	}
+
+	let sum = add(1,2);
+
+	console.log(sum);
+
+	// ES6 - Arrow function
+
+	const es6_add = (a, b) => a + b ;
+
+	console.log(es6_add(2,2));
+
+	const es6_add_2 = (a, b) => { return a + b };
+
+	console.log(es6_add_2(2,3));
+
+	// Comparison
+
+	// ES5
+
+	const team = {
+		members: ['Jane', 'Bill'],
+		teamName: 'Super Squad',
+		teamSummary: function() {
+			return this.members.map(function(member) {
+				return `${member} is on team ${this.teamName}`;
+			});
+		}
+	};
+
+	console.log(team.teamSummary());
+
+	// ^^^ This will not working since 'this' cannot be read, therefore, need to change into
+
+	const team1 = {
+		members: ['Jane', 'Bill'],
+		teamName: 'Super Squad',
+		teamSummary: function() {
+			var self = this;
+			return this.members.map(function(member) {
+				return `${member} is on team ${self.teamName}`;
+			});
+		}
+	};
+
+	console.log(team1.teamSummary());
+
+	// ES6
+	// Arrow function 'this' using
+
+	const team2 = {
+		members: ['Jane', 'Bill'],
+		teamName: 'Super Squad',
+		teamSummary: function() {
+			// this === team2
+			return this.members.map(member =>  {
+				return `${member} is on team ${this.teamName}`;
+			});
+		}		
+	};
+
+	console.log(team2.teamSummary());
+
+</script>

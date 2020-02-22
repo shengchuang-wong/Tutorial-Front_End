@@ -1,0 +1,72 @@
+<script type="text/javascript">
+	
+	// ProxyL to define rules for object
+
+	const person = {
+		name: 'Wes',
+		age: 100
+	};
+
+	const personsProxy = new Proxy(person, {
+		get(target, name) {
+			console.log('someone is asking for', target, name);
+			return target[name].toUpperCase();
+		},
+		set(target, name, value) {
+			if(typeof value === 'string') {
+				target[name] = value.trim();
+			}
+		}
+	});
+
+	personsProxy.name = 'Wesly';
+
+
+	// usage 2
+	const phoneHandler = {
+		set(target, name, value) {
+			// filter out all characters except digit
+			target[name] = value.match(/[0-9]/g).join('');
+		},
+		get(target, name) {
+      		return target[name].replace(/(\d{3})(\d{3})(\d{4})/, '($1)-$2-$3');
+		}
+	}
+
+	const phoneNumbers = new Proxy({}, phoneHandler);
+
+	// usage 3, to comat silly error
+
+	const map = {};
+
+	map.longitiude = 79.3423; // spell wrong
+	map.longitude = 79.3423; // full spelling
+	map.long = 79.3423; // wrong key
+	map.lon = 79.3423; // nope
+	map.lng = 79.3423; // Got it!
+
+	const person1 = { name: 'Wes' };
+	person1.ID = 123; // no
+	person1.iD = 123; // no
+	person1.id = 123; // yes
+
+	const safeHandler = {
+		set(target, name, value) {
+			const likeKey = Object.keys(target).find(k => k.toLowerCase() === name.toLowerCase());
+
+			if(!(name in target) && likeKey) {
+				throw new Error(`Opps! Looks like we already have a ${name} property but with the case of ${likeKey}.`)
+			}
+			target[name] = value;
+		}
+	}
+
+	const safety = new Proxy({ id: 100 }, safeHandler);
+
+	safety.ID = 200;
+
+	// try below code in console
+	safety.name = 'King';
+	safety.Name = 'Lol';
+
+</script>

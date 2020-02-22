@@ -1,0 +1,53 @@
+Project Structure
+-----------------
+1. Create public folder
+2. Create index.html inside public folder
+3. Create js folder inside public
+4. Create main.js inside js folder
+5. Create src folder
+6. Create components folder inside src folder
+7. Create main.jsx inside src folder
+8. Create your own componnent inside components folders
+9. Inside package.json "scripts" section, enter following code:
+"start": "watchify src/main.jsx -v -t [ babelify --presets [ react ] ] -o public/js/main.js",
+
+NPM cmd
+-------
+1. npm init
+2. npm install -g browserify
+3. npm install --save babelify
+4. npm install --save
+5. npm install --save babel-preset-react
+6. npm install --save react
+7. npm install --save react-dom
+8. npm install --save create-react-class / react-create-class
+9. npm start
+
+Router
+------
+npm install history@1.13.1 react-router@latest --save / npm install --save react-router-dom
+
+Local Server
+------------
+npm install -g http-server
+http-server -p 7070
+
+Fetch/Get Data from Server
+--------------------------
+npm install whatwg-fetch --save
+
+Lodash
+------
+npm install lodash --save
+
+Redux
+-----
+npm install redux --save
+
+React-Redux
+-----------
+npm install react-redux --save
+
+Redux-Promise
+-------------
+npm install redux-promise --save

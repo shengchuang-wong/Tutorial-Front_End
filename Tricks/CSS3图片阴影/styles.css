@@ -1,0 +1,97 @@
+body {
+	font-family: Arial, verdana, sans-serif;
+	font-size: 20px;
+}
+
+body, ul {
+	margin: 0;
+	padding: 0;
+	list-style: 0;
+}
+
+.wrap {
+	width: 70%;
+	height: 200px;
+	margin: 50px auto;
+	background-color: #fff;
+}
+
+.wrap h1 {
+	font-size: 20px;
+	text-align: center;
+	line-height: 200px;
+}
+
+.effect {
+	position: relative;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+				0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.effect::after {
+	position: absolute;
+	content: "";
+	background-color: #f00;
+	z-index: -1;
+	top: 50%;
+	bottom: 0;
+	left: 10px;
+	right: 10px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+	border-radius: 100px/10px;
+}
+
+box {
+	width: 980px;
+	height: auto;
+	clear: both;
+	overflow: hidden;
+	margin: 20px auto;
+}
+
+.box li {
+	position: relative;
+	width: 300px;
+	height: 210px;
+	float: left;
+	background-color: #fff;
+	margin:  20px 10px;
+	border: 2px solid #efefef;	
+	list-style: none;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2),
+			    0 0 60px rgba(0, 0, 0, 0.1) inset;
+}
+
+
+.box li img {
+	display: block;
+	width: 290px;
+	height: 200px;
+	margin: 5px;
+}
+
+.box li::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	width: 90%;
+	height: 80%;
+	left: 20px;
+	bottom: 8px;
+	background: transparent;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+	transform: skew(-12deg) rotate(-4deg);
+}
+
+.box li::after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	width: 90%;
+	height: 80%;
+	right: 20px;
+	bottom: 8px;
+	background: transparent;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+	transform: skew(12deg) rotate(4deg);
+}

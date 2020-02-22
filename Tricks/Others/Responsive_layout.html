@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Responsive Layout</title>
+<style>
+	html, body {
+		margin: 0;
+		padding: 0;
+	}
+	
+	@media only screen and (min-width: 1024px) {
+		.content {
+			widht: 1000px;
+			margin: auto;
+		}
+	}
+	
+	@media only screen and (min-width: 400px) and (max-width: 1024px) {
+		.rightBox {
+			width: 0;
+		}
+		
+		.leftBox {
+			width: 30%;
+		}
+		
+		.middleBox {
+			width: 65%;
+		}
+	}
+	
+	@media only screen and (max-width: 400px) {
+		.leftBox, .rightBox, .middleBox {
+			width: 98%;
+			height: 200px;
+		}
+	}
+
+</style>
+</head>
+
+<body>
+<div class="content">
+	<div style="height: 100px; background-color: black" class="leftBox"></div>
+    <div style="height: 100px; background-color: blue" class="middleBox"></div>
+    <div style="height: 100px; background-color: red" class="rightBox"></div>
+</div>
+</body>
+</html>

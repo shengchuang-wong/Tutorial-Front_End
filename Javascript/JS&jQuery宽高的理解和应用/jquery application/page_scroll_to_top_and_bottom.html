@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scroll Top and Bottom</title>
+<style type="text/css">
+	:root {
+		min-height: 150vh;
+	}
+</style>
+</head>
+<body>
+
+	<script
+		  src="https://code.jquery.com/jquery-3.1.1.min.js"
+		  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+		  crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		$(window).scroll(function() {
+			var ks_area = $(window).height();
+			var wholeHeight = $(document).height();
+			var scrolltop = $(window).scrollTop();
+
+			if(ks_area + scrolltop >= wholeHeight) {
+				alert("Bottom");
+			}
+
+			if(scrolltop === 0) {
+				alert("Top");
+			}
+		});
+	</script>
+
+</body>
+</html>

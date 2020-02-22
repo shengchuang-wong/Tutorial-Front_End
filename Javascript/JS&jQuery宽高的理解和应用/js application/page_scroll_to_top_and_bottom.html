@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Scroll</title>
+</head>
+<style type="text/css">
+	:root {
+		min-height: 150vh;
+	}
+</style>
+<body>
+
+	<script type="text/javascript">
+		
+		function scrollBottomOrTop() {
+			var clients = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+			var scrollTop = document.body.scrollTop;
+			var wholeHeight = document.body.scrollHeight;
+
+			if(clients+scrollTop >= wholeHeight) {
+				alert("Bottom");
+			}
+
+			if(scrollTop === 0) {
+				alert("Top");
+			}
+		}
+
+		window.addEventListener("scroll", scrollBottomOrTop);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Axios with firebase
+===================
+1. axios.post('[firebase base url]/orders.json');
+
+It will then create a dataset with:
+orders > unique key generated > [data posted]

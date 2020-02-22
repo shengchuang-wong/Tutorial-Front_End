@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>X &amp; Y</title>
+</head>
+<style type="text/css">
+	#testid {
+		background-color: red;
+		width: 200px;
+		height: 200px;
+		margin: 100px auto;
+	}
+</style>
+<body>
+	
+	<div id="testid">
+		
+	</div>
+
+	<script type="text/javascript">
+		
+	var testid = document.getElementById("testid");
+
+	testid.addEventListener("click", consoleXY);
+
+	function consoleXY(e) {
+		// window, scroll change
+		console.log(e.clientX + " :client: " + e.clientY);
+
+		// computer screen
+		console.log(e.screenX + " :screen: " + e.screenY);
+
+		// element
+		console.log(e.offsetX + " :offset: " + e.offsetY);
+
+		// window, scroll unchanged
+		console.log(e.pageX + " :page: " + e.pageY);
+
+		// client x and y for chrome
+		console.log(e.x + " " + e.y);
+	}
+
+	</script>
+
+</body>
+</html>

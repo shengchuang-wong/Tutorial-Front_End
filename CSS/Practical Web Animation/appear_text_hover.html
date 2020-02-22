@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+	
+	body {
+		background-color: #eee;
+	}
+
+	button {
+		font-family: verdana, sans-serif;
+		display: block;
+		margin: 20px;
+	}
+
+	.btn {
+		font-size: 30px;
+		color: #bbb;
+		cursor: pointer;
+		background-color: white;
+		border: 1px solid #ddd;
+		box-shadow: 0 0 3px rgb(220, 220, 200);
+		width: 70px;
+		height: 70px;
+		border-radius: 70px;
+		padding: 0;
+		position: relative;
+		overflow: hidden;
+		transition: all .5s;
+	}
+
+	.btn .btn-icon {
+		width: 70px;
+		height: 70px;
+		text-align: center;
+		line-height: 65px; /* 70px */
+		transition: all .25s;
+	}
+
+	.btn:focus {
+		outline: none;
+	}
+
+	.btn-stretch .btn-text {
+		position: absolute;
+		left: 0;
+		left: 75px;		
+		top: -10px;
+		opacity: 0;
+		transition: all .5s .15s; /* delay */
+	}
+
+	.btn-spin .btn-text {
+		position: absolute;
+		height: 70px;
+		width: 200px;
+		line-height: 70px;
+		left: -50%;
+		top: 0;	
+		opacity: 0;
+		transition: all .5s .15s;
+	}
+
+	.btn-stretch:hover {
+		width: 200px;
+	}
+
+	.btn-stretch:hover .btn-text {
+		top: 20px;
+		opacity: 1;
+	}
+
+	.btn-spin:hover {
+		width: 200px;
+		border-radius: 4px;
+	}
+
+	.btn-spin:hover .btn-text {
+		left: 0;
+		opacity: 1;
+	}
+
+	.btn-spin:hover .btn-icon {
+		transform: rotate(180deg);
+		opacity: 0;
+	}
+
+</style>
+
+<body>
+
+	<button class="btn btn-stretch">
+		<div class="btn-icon">
+			<i class="fa fa-arrow-right"></i>
+		</div>
+		<span class="btn-text">submit</span>
+	</button>
+
+	<button class="btn btn-spin">
+		<div class="btn-icon">
+			<i class="fa fa-arrow-right"></i>
+		</div>
+		<span class="btn-text">submit</span>
+	</button>
+
+	<script type="text/javascript">
+		
+	</script>
+
+</body>
+</html>

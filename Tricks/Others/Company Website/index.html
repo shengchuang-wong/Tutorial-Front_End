@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Company Website</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<script src="javascript/setHomeSetFav.js" type="text/javascript" charset="gb2312"></script>
+<script src="javascript/myfocus-2.0.1.min.js" type="text/javascript"></script> 
+<script src="javascript/mf-pattern/mF_YSlider.js" type="text/javascript"></script>
+<link href="javascript/mf-pattern/mF_YSlider.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	myFocus.set({
+		id: 'picBox'
+	})
+</script>
+</head>
+
+<body>
+	<div class="top">
+    	<div class="top_content">
+        	<ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#" onclick="AddFavorite(window.location, document.title)">Bookmark</a></li>
+            	<li><a href="#" onclick="SetHome(window.location)">HomePage</a></li>       
+            </ul>
+        </div>
+    </div><!-- top ended -->
+    <div class="wrap">
+    	<div class="logo">
+        	<div class="logo_left">
+            	<img src="images/logo.jpg" alt="慕课网" />
+            </div>
+            <div class="logo_right">
+            	 <img src="images/tel.jpg" alt="Hotline" />24 Hour Hotline: <span class="tel">123-456-7890</span>
+            </div>
+        </div><!-- logo ended -->
+        <div class="nav">
+        	<div class="nav_left"></div>
+            <div class="nav_mid">
+            	<div class="nav_mid_left">
+                	<ul>
+                    	<li><a href="index.html">Hompage</a></li>
+                        <li><a href="list.html">About Us</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="list.html">Central</a></li>
+                        <li><a href="list.html">Course</a></li>
+                        <li><a href="list.html">Career</a></li>
+                    </ul>
+                </div>
+                <div class="nav_mid_right">
+                	<form action="" method="post">
+                    	<input type="text" class="search_text" />
+                    </form>
+                </div>
+           	</div><!-- nav_mid ended -->
+            <div class="nav_right"></div>
+        </div><!-- nav ended -->
+        <div class="ad" id="picBox">
+        <div class="loading"><img src="images/loading.gif" alt="Image Loading" /></div>
+        	<div class="pic">
+                <ul>
+                    <li><img src="images/ad2.jpg" /></li>
+                    <li><img src="images/ad3.jpg" /></li>
+                    <li><img src="images/ad4.jpg" /></li>
+                </ul>
+            </div>
+        </div><!-- ad ended -->
+        <div class="main">
+        	<div class="news">
+            	<div class="title">
+                	<h2 class="title_left">News Center</h2><span class="title_right"><a href="news.html">More&gt;&gt;</a></span>
+                </div><!-- title ended -->
+                <div class="pic_news">
+                	<img src="images/news.jpg" /><h2><a href="news.html">520 Goddess Confession!</a></h2><p>Event Time: 5 May - 25 May<br  />Prize Given on: 26 May<br /><a href="news.html">Learn More&gt;&gt;</a></p>
+                </div><!-- pic_news ended -->
+                <div class="news_list">
+                	<ul>
+                    	<li><span class="date"> 2016-04-01</span><a href="news.html">[MuKe Interview User] "Foolish" on the way</a></li>
+                        <li><span class="date"> 2016-04-01</span><a href="news.html">[Prize Event] A three line's letter for father</a></li>
+                        <li><span class="date"> 2014-03-29</span><a href="news.html">&lt;Programmer&gt; Winner Notice Board</a></li>
+                        <li><span class="date"> 2014-03-28</span><a href="news.html" title="aa">[MuKe Interview] The evolution of pretty programmer</a></li>
+                    </ul>
+                </div><!-- news_list ended -->
+            </div><!-- news ended -->
+            <div class="course">
+            	<div class="title">
+                	<h2 class="title_left">Course Center</h2><span class="title_right"><a href="news.html">More&gt;&gt;</a>
+</span>                </div><!-- title ended -->
+                
+                <div class="course_pic">
+                	<img src="images/css.jpg" /><a href="news.html"><h2>CSS Round Discussion</h2></a><p>CSS Made it, by three evolve staged: background, CSS 2.0 + HTML tag, CSS 3.0 Round. This article explain every detail of method, and make comparison between with the pros and cons</p>
+                </div><!-- course_pic ended -->
+
+                <div class="course_type">
+                    <ul>
+                    	<li>PHP Development</li>
+                        <li>Front-End Development</li>
+                        <li>JAVA Development</li>
+                        <li>Android Development</li>
+                    </ul>
+                </div><!-- course_type ended -->
+            </div><!-- course ended -->
+            <div class="sidebar">
+            	<div class="video">
+                	<div class="title">
+                    	<h2 class="title_left">Media Spot</h2>
+                    </div>
+                    <div class="video_content">
+                    	<embed src="http://player.youku.com/player.php/sid/XNjkzMDE5MTUy/v.swf" allowFullScreen="true" quality="high" width="220" height="140" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+                    </div>
+                </div><!-- video ended -->
+                <div class="sidebar_ad">
+                	<img src="images/app.jpg" />
+                </div><!-- sidebar_ad ended -->
+            </div><!-- sidebar ended -->
+        </div><!-- main ended -->
+    </div><!-- wrap ended -->
+    <div class="copyright">
+    	<div class="copyright_content">
+        	<ul>
+            	<li><a href="#">About</a>
+                	<ul>
+                    	<li><a href="#">Brand Story</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Join Us</a></li>
+                        <li><a href="#">Copyright Statement</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Course</a>
+                	<ul>
+                    	<li><a href="#">PHP Development</a></li>
+                        <li><a href="#">Front-End Development</a></li>
+                        <li><a href="#">JAVA Development</a></li>
+                        <li><a href="#">Android Development</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Message</a>
+                	<ul>
+                    	<li><a href="#">Sina Blog</a></li>
+                        <li><a href="#">Tencent Blog</a></li>
+                        <li><a href="#">Company Blog</a></li>
+                        <li><a href="#">QQ Blog</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Subscribe</a>
+                	<ul>
+                    	<li><a href="#">Feedback</a></li>
+                        <li><a href="#">Leave a Message</a></li>
+                        <li><a href="#">Contact Media</a></li>
+                        <li><a href="#">Online Service</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="images/weixin.png" />Follow Us in Wechat</a>
+                	<ul>
+                    	<li><img src="images/qrcode.jpg" /></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

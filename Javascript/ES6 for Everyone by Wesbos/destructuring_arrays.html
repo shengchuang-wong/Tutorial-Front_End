@@ -1,0 +1,58 @@
+<script type="text/javascript">
+	
+	const details = ['Wong Ken', 123, 'wongken.com'];
+
+	// Traditional Approach
+	const name_old = details[0];
+	const id_old = details[1];
+
+
+	// ES6
+	const [name, id, website] = details;
+	console.log(name, id, website);
+
+	const data = 'Basketball, Sports, 90210, 23';
+	const [itemName,category,sku,inventory] = data.split(',');
+	console.log(itemName, category, sku, inventory);
+
+	// while in different use case
+	const team = ['Wong', 'Ken', 'Sarah', 'Keegan', 'Riker'];
+	// use rest operator
+	const [captain, assistant, ...players] = team;
+
+
+	// Use in swap variable
+	let inRing = 'Hulk Hogan';
+	let onSide = 'The Rock';
+
+	[inRing, onSide] = [onSide, inRing];
+
+
+	////////////////////////////////////////
+	// Practical Use ///////////////////////
+	////////////////////////////////////////
+
+	// 1. Currency Converter
+	function convertCurrency(amount) {
+		const converted = {
+			USD: amount * 0.76,
+			CPB: amount * 0.53,
+			AUD: amount * 1.01,
+			MEX: amount * 13.30
+		};
+		return converted;
+	}
+
+	// Get only what you want
+	const { USD, AUD } = convertCurrency(100);
+	console.log(USD, AUD);
+
+	// 2. Default argument - object
+	function tipCalc({ total = 100, tip = 0.15, tax = 0.13 } = {}) {
+		return total + (tip * total) + (tax * total);
+	}
+
+	const bill = tipCalc();
+	console.log(bill);
+
+</script>

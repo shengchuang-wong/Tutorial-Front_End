@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dropdown Menu</title>
+
+	<style type="text/css">
+
+		.dropdown {
+			display: inline-block;
+		}
+
+		.dropdown nav {
+			max-height: 0;
+			overflow: hidden;
+			opacity: 0;
+			transition: all 0.4s, opacity 0.2s
+		}
+
+		.dropdown nav a {
+			display: block;
+		}
+
+		.dropdown:hover nav{
+			opacity: 1;
+			max-height: 999px;
+		}
+
+		a {
+			display: inline-block;
+			background-color: rgba(0, 0, 0, 1);
+			color: whitesmoke;
+			text-decoration: none;
+			padding: 1em 2em;
+			font-family: sans-serif;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="dropdown">
+		<a href="#">Dropdown</a>
+		<nav>
+			<a href="#">Sublink</a>
+			<a href="#">Sublink</a>
+			<a href="#">Sublink</a>
+		</nav>
+	</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<script type="text/javascript">
+	var users = [
+		{ name: 'Jim' },
+		{ name: 'Alex' },
+		{ name: 'Bill' }
+	];
+
+	// ES5
+
+	var user;
+
+	for (var i = 0; i < users.length; i++) {
+		if (users[i].name === 'Alex') {
+			user = users[i];
+			break;
+		}
+	}
+
+	console.log(user);
+
+	// ES6
+
+	var user = users.find(user => user.name === 'Alex');
+
+	console.log(user);
+
+
+	function Car(model) {
+		this.model = model;
+	}
+
+	var cars = [
+		new Car('Buick'),
+		new Car('Camaro'),
+		new Car('Focus')
+	];
+
+	console.log(cars.find(car => car.model === 'Focus'));
+
+</script>

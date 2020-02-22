@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React.js</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+	
+	<div id="app"></div>
+
+	<script>
+
+		// I can't do anything. Jsx not supported :(
+
+		const element = React.createElement('p', null, 'Max');
+
+		// const elementDuplicate = <p>Max</p>; <<< need jsx
+
+		ReactDOM.render(element,
+		document.querySelector('#app'));
+	</script>
+
+</body>
+</html>

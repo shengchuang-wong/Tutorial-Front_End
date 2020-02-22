@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js Practices</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<style>
+		li:hover {
+			cursor: pointer;
+			text-decoration: underline;
+		}
+
+		#hobbyDeletedText {
+			animation: fadeIn .25s linear;
+			font-weight: bold;
+			font-size: 1.5rem;
+			font-family: sans-serif;
+			text-shadow: 1px 1px 1px grey;
+		}
+
+		@keyframes fadeIn {
+			0% { opacity: 0; }
+			100% { opacity: 1; }
+		}
+
+		.hobbyCount {
+			transition: .35s ease-in-out;
+		}
+
+		.hobbyCount.many {
+			font-size: 1.2rem;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="app">
+		<input type="text" v-model="newHobby">
+		<button v-on:click="addHobby">New Hobby</button>
+		<p class="hobbyCount" v-bind:class="{many : hobbies.length > 3}">Hobbies: {{ hobbies.length }}</p>
+		<ul>
+			<li v-for="hobby in hobbies"
+			    v-on:click="removeHobby(hobby)">{{ hobby }}</li>
+			<p v-if="isAnyHobbyDeleted" id="hobbyDeletedText">Hobby deleted!</p>
+		</ul>
+	</div>
+	
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				hobbies: ['travel', 'programming', 'sports'],
+				newHobby: '',
+				isAnyHobbyDeleted: false
+			},
+			methods: {
+				addHobby() {
+					if(this.newHobby.trim() === '' || this.hobbies.find(hobby => hobby === this.newHobby)) {
+						this.newHobby = '';
+						return;
+					}
+					this.hobbies.push(this.newHobby);
+					this.newHobby = '';
+					console.log(this.hobbies);
+				},
+				removeHobby(removedHobby) {
+					if(!this.isAnyHobbyDeleted) {
+						this.isAnyHobbyDeleted = true;
+					}					
+					this.hobbies = this.hobbies.filter(hobby => hobby !== removedHobby);
+				}
+			}
+		});
+	</script>
+</body>
+</html>

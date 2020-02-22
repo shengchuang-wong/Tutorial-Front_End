@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript">
+	window.onload = function() {
+		showTime();
+	}
+	
+	function showTime() {
+		var curTime = new Date();
+		var endTime = new Date("2016/4/30,01:28:00");
+		var timeDiff = parseInt((endTime.getTime() - curTime.getTime()) /1000);
+		var dayDiff = parseInt(timeDiff / (24*60*60));
+		var hourDiff = parseInt(timeDiff/(60*60)%24);
+		var minuteDiff = parseInt(timeDiff/60%60);
+		var secondDiff = parseInt(timeDiff % 60);
+		
+		document.getElementById('leftTime').innerHTML = dayDiff + " day " + hourDiff + " hour " + minuteDiff + " minute " + secondDiff + " seconds";
+		
+		if(timeDiff <= 0) {
+			document.getElementById('leftTime').innerHTML = "Event Ended";
+		}
+		
+		setTimeout(showTime, 500);
+	}
+	
+</script>
+</head>
+
+<body>
+	<div class="content3">
+    	<div class="time">
+        	Event end in: <span id="leftTime"></span>
+        </div>
+    </div>
+</body>
+</html>

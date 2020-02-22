@@ -1,0 +1,33 @@
+body {
+	transform: perspective(250px);
+	transform-style: preserve-3d;
+}
+
+#box {
+	position: relative;
+	top: 40px;
+	width: 700px;
+	height: 700px;
+	background-color: #afd3ef;
+	border: 3px solid #032e4f;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#dragon {
+	position: absolute;
+	left: calc(700px - 95%);
+	top: calc(700px - 80%);
+	border: 1px solid black;
+
+	transform: rotateX(45deg) rotateY(45deg);
+	transition: all 1s;
+
+}
+
+#box:hover #dragon {
+	cursor: pointer;
+	transform: rotateX(-30deg) rotateY(-30deg);
+}
+
+/* transform-origin is also nice, like : 0% 100%; center; bottom left*/

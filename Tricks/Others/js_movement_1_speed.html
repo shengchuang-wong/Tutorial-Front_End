@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+	}
+
+	#box1 {
+		width: 200px;
+		height:200px;
+		background-color: red;
+		position:relative;
+		left: -200px;
+		top: 0px;
+		animation-name: trainBack;
+		animation-duration: 5s;
+	}
+	
+	#box1 span{
+		witdth: 80px;
+		height: 50px;
+		background-color: blue;
+		position: absolute;
+		left: 200px;
+		top: 75px;
+		color: white;
+	}
+	
+	#box1:hover {
+		left: 0px;
+		animation-name: trainCome;
+		animation-duration: 2s;
+	} 
+	
+	@keyframes trainCome {
+		0% {
+			left: -200px;
+		}
+		20% {
+			left: -50px;
+		}
+		100% {
+			left: 0px;
+		}
+	}
+	
+	@keyframes trainBack {
+		0% {
+			left: 0px;
+		}
+		10% {
+			left: -150px;
+		}
+		100% {
+			left: -200px;
+		}
+	}
+	
+</style>
+</head>
+
+<body>
+    <div id="box1">
+    	<span id="share">Share</span>
+    </div>
+</body>
+</html>

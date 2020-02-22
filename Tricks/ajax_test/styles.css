@@ -1,0 +1,54 @@
+*, body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	transition: all 0.4s;
+}
+
+body {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+li {
+	list-style-type: none;
+}
+
+h1 {
+	text-align: center;
+	text-decoration: underline;
+}
+
+#comment_container {
+	position: relative;
+	text-align: center;
+	margin-top: 50px;
+	width: 100%;
+}
+
+#comment_list {
+	margin: 0 auto;
+	border: 1px solid black;
+	width: 25%;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+#comment_list > li:not(:last-of-type) {
+	border-bottom: 1px solid black; 
+}
+
+#comment_list > li {
+	padding: 10px 20px;
+}
+
+#comment_form {
+	position: relative;
+	width: 25%;
+	margin: 0 auto;
+}
+
+#comment_form input {
+	display: block;
+	width: 100%;
+	outline: none;
+	padding: 10px 20px;
+}

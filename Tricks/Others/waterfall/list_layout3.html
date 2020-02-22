@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>List Layout</title>
+<style type="text/css">
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	ul {
+		list-style-type: none;
+	}
+	
+	#box {
+		height: auto;
+		width: 550px;
+		border: 1px solid #aaa;
+		margin:0 auto;
+		overflow: hidden;
+	}
+	
+	.top {
+		height: 40px;
+	}
+	
+	.top a {
+		height: 16px;
+		width: 16px;
+		display: block;
+		border: 1px solid black;
+		float: right;
+		margin: 5px;
+	}
+	
+	.btn-list-off {
+		background: #fff;
+	}
+	
+	.btn-card-on {
+		background-color: black;
+	}
+	
+	#box ul li {
+		height: auto;
+		width: 164px;
+		border: 1px solid #aaa;
+		float: left;
+		margin: 5px;
+	}
+	
+	.a-img {
+		height: 164px;
+		width: 164px;
+		display: block;
+		overflow: hidden;
+	}
+	
+	p a, p span {
+		display: block;
+		line-height: 23px;
+		padding-left: 10px;
+	}
+	
+	body {
+		font-size: 14px;
+	}
+	
+	.bottom {
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		background-color: #ccc;
+	}
+	
+	a {
+		text-decoration: none;
+	}
+	
+	.small {
+		width: 50px;
+		height: 50px;
+		display: block;
+	}
+	
+	.btn-list-on {
+		background-color: black;
+	}
+	
+	.btn-card-off {
+		background-color: #fff;
+	}
+	
+</style>
+<script type="text/javascript">
+	window.onload = function() {
+		var listBtn = document.getElementById("btn1");
+		var cardBtn = document.getElementById("btn2");
+		var imgs = document.getElementsByTagName("img");
+		
+		listBtn.onclick = function() {
+			listBtn.className = "btn-list-on";
+			cardBtn.className = "btn-card-off";
+			
+			for(var i = 0; i < imgs.length; i++) {
+				imgs[i].parentNode.className = "a-img small";
+			}
+		}
+		
+		cardBtn.onclick = function() {
+			listBtn.className = "btn-list-off";
+			cardBtn.className = "btn-card-on";
+			
+			for(var i = 0; i < imgs.length; i++) {
+				imgs[i].parentNode.className = "a-img";
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+
+<div id="box">
+	<div class="top">
+    	<a href="#" title="list_mode" id="btn1" class="btn-list-off"></a>
+        <a href="#" title="card_mode" id="btn2" class="btn-card-on"></a>
+    </div>
+    <ul>
+    	<li>
+        	<div class="con">
+                <a href="#" class="a-img">
+                    <img src="images/0.jpg" />
+                </a>
+                <p>
+                    <a href="#">Ken Wong</a>
+                    <span>Kuala Lumpur</span>
+                    <span>21 mutual friends</span>
+                </p>
+            </div>
+            <div class="bottom">No Group</div>
+        </li>
+        <li>
+           <div class="con">
+                <a href="#" class="a-img">
+                    <img src="images/1.jpg" />
+                </a>
+                <p>
+                    <a href="#">Ken Wong</a>
+                    <span>Kuala Lumpur</span>
+                    <span>21 mutual friends</span>
+                </p>
+            </div>
+            <div class="bottom">No Group</div>
+        </li>
+        <li>
+        	<div class="con">
+                <a href="#" class="a-img">
+                    <img src="images/2.jpg" />
+                </a>
+                <p>
+                    <a href="#">Ken Wong</a>
+                    <span>Kuala Lumpur</span>
+                    <span>21 mutual friends</span>
+                </p>
+            </div>
+            <div class="bottom">No Group</div>        
+        </li>
+        <li>
+        	<div class="con">
+                <a href="#" class="a-img">
+                    <img src="images/3.jpg" />
+                </a>
+                <p>
+                    <a href="#">Ken Wong</a>
+                    <span>Kuala Lumpur</span>
+                    <span>21 mutual friends</span>
+                </p>
+            </div>
+            <div class="bottom">No Group</div>        
+        </li>
+        <li>
+        	<div class="con">
+                <a href="#" class="a-img">
+                    <img src="images/4.jpg" />
+                </a>
+                <p>
+                    <a href="#">Ken Wong</a>
+                    <span>Kuala Lumpur</span>
+                    <span>21 mutual friends</span>
+                </p>
+            </div>
+            <div class="bottom">No Group</div>        
+        </li>
+        <li>
+         	<div class="con">
+                <a href="#" class="a-img">
+                    <img src="images/5.jpg" />
+                </a>
+                <p>
+                    <a href="#">Ken Wong</a>
+                    <span>Kuala Lumpur</span>
+                    <span>21 mutual friends</span>
+                </p>
+            </div>
+            <div class="bottom">No Group</div>       
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js Basic</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<style>
+		.updated {
+			color: white;
+			font-weight: bold;
+			background-color: cornflowerblue;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="app">
+		<app-username v-bind:username="'Chris'" v-on:userclicked="userWasClicked($event)"></app-username>
+		<app-username v-bind:username="'Anna'"></app-username>
+		<p v-bind:class="{updated : user.name === 'Josh'}">{{ user }}</p>
+		<p v-if="user.name === 'Josh'">Name updated!</p>
+		<button v-on:click="changeName" >Change Name</button>
+		<button v-on:click="addElement">New Element</button>
+		<ul>
+			<!-- Same but use double quote 
+				<li v-for="el in elements" v-bind:id="'element_' + el">A Element {{ el }}</li> -->
+			<li 
+				v-for="el in elements" 
+				v-bind:id=`element_${el}`
+				v-bind:style="{backgroundColor: getColor(el) }">A Element {{ el }}</li>
+		</ul>
+	</div>
+
+	<div id="app2">
+		{{ message }}
+		<br>
+		<br>
+		<input type="text" v-model="message">
+	</div>
+	<br>
+
+<!-- 	<div class="username">{{ username }}</div>
+	<div class="username">{{ username }}</div> -->
+
+	<script>
+
+		// why app-username and not just username? Because your selectors should be unique so that you don't overwrite "normal" HTML elements
+		// Resuable compoenents
+		Vue.component('app-username', {
+			props: ['username'],
+			data() {
+				return {
+					// username: 'Chris'
+				}
+			},
+			template: '<p v-on:click="usernameClicked">{{ username }}</p>',
+			methods: {
+				usernameClicked() {
+					this.$emit('userclicked', this.username);
+				}
+			}
+		});
+
+		new Vue({
+			el: '#app',
+			data: {
+				user: {
+					name: 'Max',
+					age: 22
+				},
+				elements: []
+			},
+			methods: {
+				changeName() {
+					this.user.name = 'Josh';
+				},
+				addElement() {
+					this.elements.push(this.elements.length + 1);
+				},
+				getColor(number) {
+					return number % 2 === 0 ? 'cornflowerblue' : 'MistyRose';
+				},
+				userWasClicked(name) {
+					alert(name);
+				}
+			}
+		});
+
+
+		new Vue({
+			el: '#app2',
+			data: {
+				message: 'Hello there, i am another vue instance. My limitation is not reusable :( example shown as below, commented'
+			}
+		});
+
+		// new Vue({
+		// 	el: '.username',
+		// 	data: {
+		// 		username: 'james'
+		// 	}
+		// })
+	</script>
+
+</body>
+</html>

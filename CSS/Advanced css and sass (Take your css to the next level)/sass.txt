@@ -1,0 +1,113 @@
+Syntax
+======
+1.) Variable
+$color-primary: #f9ed9;
+background-color: $color-primary;
+
+2.) Style for nested element
+For CSS
+.navigation {
+	xxx
+}
+
+.navigation li {
+	xxx
+}
+
+For SASS
+.navigation {
+	xxxx
+
+	li {
+		xxx
+	}
+}
+
+However, for pseudo element, need to add & in front
+E.g.
+.navigation {
+	xxxx
+
+	&:last-child {
+		xxx
+	}
+}
+
+3.) Dynamically darken or lighten color
+// (color, percentage)
+background-color: darken($color-primary, 15%);
+background-color: lighten($color-primary, 15%);
+
+4.) Mixin
+@mixin clearfix {
+	&::after {
+		content: '';
+		clear: both;
+		display: table;
+	}
+}
+
+To use it
+.container {
+	@include clearfix;
+}
+
+Mixin also allow arguments
+@mixin abcstyle($color) {
+	background-color: $color;
+}
+
+To use it
+.container {
+	@include abcstyle(#fff);
+}
+
+4.) Function
+@function divide($a, $b) {
+	@return $a / $b;
+}
+
+To use it
+.container {
+	margin: divide(50, 2) * 1px;
+}
+
+5.) Extend
+%btn-placeholder {
+	background-color: 'black';
+	padding: 10px;
+}
+
+To use it
+.btn:link {
+	@extend %btn-placeholder;
+}
+
+5.) To use media queries efficiently
+- Create a mixin
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone {
+		@media only screen and (max-width: 37.5em) { @content }
+	}
+
+	@if $breakpoint == tab-port {
+		@media only screen and (max-width: 56.25em) { @content }
+	}
+
+	@if $breakpoint == tab-land {
+		@media only screen and (max-width: 75em) { @content }
+	}
+
+	@if $breakpoint == big-desktop {
+		@media only screen and (min-width: 112.5em) { @content }
+	}
+}
+
+- Use it in elements
+@include respond(tab-port) {
+	width: 100% !important;
+}
+
+Tips
+====
+1.) Comment using // instead of /**/

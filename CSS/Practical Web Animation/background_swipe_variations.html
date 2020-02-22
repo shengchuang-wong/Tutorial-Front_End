@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+</head>
+
+<style type="text/css">
+
+	body {
+		background-color: #eee;
+	}
+	
+	.btnSwipe {
+		background-color: #46a;
+		color: white;
+		border: none;
+		width: 200px;
+		height: 40px;
+		text-transform: uppercase;
+		font-family: sans-serif;
+		font-size: 14px;
+		position: relative;
+	}
+
+	.btnSwipe span {
+		color: #fff;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 200px;
+		height: 40px;
+		line-height: 40px;
+		transition: all .5s;
+	}
+
+	.btnSwipe::before {
+		content: "";
+		display: block;
+		background-color: #fff;
+		width: 0;
+		height: 40px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: all .5s;	
+	}
+
+	.centerSwipe::before, .skewSwipe::before {
+		left: 50%;
+	}
+
+	.skewSwipe::before {
+		transform: skewX(30deg);
+	}
+
+	.skewSwipe {
+		overflow: hidden;
+	}
+
+	.btnSwipe:hover::before {
+		width: 200px;
+		left: 0%;
+	}
+
+	.btnSwipe:hover span {
+		color: #46a;
+	}
+
+</style>
+
+<body>
+
+	<button class="btnSwipe">
+		<span>Background Swipe</span>
+	</button>
+
+	<button class="btnSwipe centerSwipe">
+		<span>Background Swipe</span>
+	</button>
+
+	<button class="btnSwipe skewSwipe">
+		<span>Background Swipe</span>
+	</button>
+
+	<script type="text/javascript">
+		
+	</script>
+
+</body>
+</html>

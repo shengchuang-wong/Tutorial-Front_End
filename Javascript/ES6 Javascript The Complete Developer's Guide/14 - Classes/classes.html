@@ -1,0 +1,67 @@
+<script type="text/javascript">
+	
+	// ES5
+
+	function Car(options) {
+		this.title = options.title;
+	}
+
+	Car.prototype.drive = function() {
+		return 'vroom';
+	}
+
+	function Toyota(options) {
+		Car.call(this, options);
+		this.color = options.color;
+	}
+
+	Toyota.prototype = Object.create(Car.prototype);
+	Toyota.prototype.constructor = Toyota;
+
+	Toyota.prototype.honk = function() {
+		return 'beep';
+	}
+
+	const toyota = new Toyota({ color: 'red', title: 'Daily Driver' });
+
+	console.log(toyota);
+	console.log(toyota.drive());
+	console.log(toyota.honk());
+
+
+	// ES6
+
+	class Car1 {	
+
+		constructor({ title }) {
+			this.title = title;
+		}
+
+		drive() {
+			return 'vroom';
+		}
+
+	}
+
+	class Toyota1 extends Car1 {
+
+		constructor(options) {
+			super(options);
+			this.color = options.color;
+		}
+
+		honk() {
+			return 'beep';
+		}
+	}
+
+	const car1 = new Car1({ title: 'Toyota' });
+	const toyota1 = new Toyota1({ color: 'red', title: 'Daily Driver' });
+	console.log(car1);
+	
+	console.log(toyota1);
+	console.log(toyota1.drive());
+	console.log(toyota1.honk());
+
+
+</script>

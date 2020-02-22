@@ -1,0 +1,35 @@
+<script type="text/javascript">
+	
+	function retirement(retirementAge) {
+
+		var a = " years left until retirement."
+
+		return function(yearOfBirth) {
+			var age = new Date().getFullYear() - yearOfBirth;
+			console.log((retirementAge - age) + a);
+		}
+	}
+
+	var retirementMY = retirement(60);
+	retirementMY(1990);
+	var retirementGermany = retirement(65);
+	var retirementUS = retirement(66);
+	var retirementIceLand = retirement(67);
+
+	//retirement(65)(1990);
+
+	function interviewQuestion(job) {
+		return function(name) {
+			if (job === "designer") {
+				console.log(name + ", can you please explain what UX deisng is?");
+			} else if (job === "teacher") {
+				console.log("What subject do you teach, " + name + "?");
+			} else {
+				console.log("Hello " + name + ", what do you do?");
+			}
+		}
+	}
+
+	interviewQuestion("teacher")("John");
+
+</script>

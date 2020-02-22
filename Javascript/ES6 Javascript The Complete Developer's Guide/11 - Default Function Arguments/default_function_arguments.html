@@ -1,0 +1,50 @@
+<script type="text/javascript">
+	
+	// ES5
+
+	function makeAjaxRequest(url, method) {
+		if (!method) {
+			method = 'GET';
+		}
+
+
+	}
+
+	makeAjaxRequest('google.com');
+	makeAjaxRequest('google.com', 'GET');
+
+	// ES6
+
+	function makeAjaxRequest(url, method = 'GET') {
+		return method;
+	}
+
+	var r1 = makeAjaxRequest('google.com');
+	var r2 = makeAjaxRequest('google.com', 'POST');
+
+	console.log(r1);
+	console.log(r2);
+
+	console.log('everything is okay');
+
+	// Practical usage
+
+	function User(id) {
+		this.id = id;
+	}
+
+	function generateId() {
+		return Math.random() * 999999;
+	}
+
+	function createAdminUser(user = new User(generateId())) {
+		user.isAdmin = true;
+
+		return user;
+	}
+
+	let admin = createAdminUser();
+
+	console.log(admin);
+
+</script>

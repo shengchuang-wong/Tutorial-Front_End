@@ -1,0 +1,24 @@
+<script type="text/javascript">
+	
+	const person = {
+		first: 'Wong',
+		last: 'Ken',
+		country: 'Canada',
+		city: 'Hamilton',
+		twitter: '@wongken'
+	};
+
+	const { first, last, twitter } = person;
+
+	// assign new variable name
+	const { first:firsttName, last:lastName } = person;
+
+	const settings = { width: 300, color: 'black' }
+
+	// fallback or default value
+	const { width = 100, height = 100, color = 'blue', fontSize = 25 } = settings;
+
+	// Final Combination
+	const { w: width_new = 400, h: height_new = 500 } = { w: 800 };
+
+</script>

@@ -1,0 +1,48 @@
+<script type="text/javascript">
+
+	var numbers = [10,20,30];
+	var sum = 0;
+
+	// ES5
+
+	for (var i = 0; i < numbers.length; i++) {
+		sum += numbers[i];
+	}
+
+	console.log(sum);
+
+	var sum2 = numbers.reduce(function(sum, number) {
+		return sum + number;
+	}, 0);
+
+	console.log(sum2);
+
+	// ES6
+
+	const sumup = (sum, number) => sum + number;
+
+	var sum3 = numbers.reduce((sum, number) => sum + number, 0);
+
+	// OR
+
+	var sum4 = numbers.reduce(sumup, 0);
+
+	console.log(sum3);
+	console.log(sum4);
+
+	// Practical Usage
+
+	function balanceParens(string) {
+		return !string.split("").reduce(function(previous, char) {
+
+			if (previous < 0) { return previous };
+			if (char === "(") { return ++previous };
+			if (char === ")") { return --previous };
+
+			return previous;
+		}, 0);
+	}
+
+	console.log(balanceParens(")("));
+
+</script>

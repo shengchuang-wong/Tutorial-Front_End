@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animation with setInterval</title>
+	<style type="text/css">
+		#dragon {
+			position: absolute;
+			top: 100px;
+		}
+	</style>
+</head>
+<body>
+	<img id="dragon" src="dragon.png" alt="dragon" width="300" height="200" />
+
+	<script type="text/javascript">
+		var dragon = document.getElementById("dragon");
+
+		var myLoop = setInterval(loop, 20);
+
+		var cur = 0;
+		var dest = window.innerWidth - dragon.width;
+		var friction = 0.04;
+
+		function loop() {
+			cur += ((dest - cur) * friction);
+			dragon.style.left = cur + 'px';
+
+			if(cur >= (dest - .1)) {
+				clearInterval(myLoop);
+			}
+		}
+
+	</script>
+</body>
+</html>

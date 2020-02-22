@@ -1,0 +1,74 @@
+<div class="bio"></div>
+<script type="text/javascript">
+	
+	// usage 1: multiple line html
+
+	const html = `
+		<div>
+			<p>lol</p>
+		</div
+	`;
+
+	// usage 2: mapping
+
+	const dogs = [
+		{ name: 'Snickers', age: 2 },
+		{ name: 'Hugo', age: 8 },
+		{ name: 'Sunny', age: 1 }
+	];
+
+	const markup = `
+		<ul class="dogs">
+			${dogs.map(dog => `<li>${dog.name} is ${dog.age * 7}</li>`).join('')}
+		</ul>
+	`;
+
+	// usage 3: call function (ez)
+
+	//////////////////////////////////////////
+	///////// Tagged Template Strings ////////
+	//////////////////////////////////////////
+
+	function hightlight(strings, ...values) {
+		let str = '';
+		strings.forEach((string, i) => {
+			str += `${string} <span class="h1">${values[i] || ''}</span>`;
+		});
+		return str;
+	}
+
+	const name = 'Snickers';
+	const age = 100;
+	const sentence1 = hightlight`My dog's name is ${name} and he is ${age} years old`;
+	console.log(sentence1);
+
+	// Real Example
+
+	const dict = {
+		HTML: 'Hyper Text Markup Language',
+		CSS: 'Cascading Style Sheets',
+		JS: 'Javascript'
+	};
+
+	function addAbbreviations(strings, ...values) {
+		const abbreviated = values.map(value => {
+			if(dict[value]) {
+				return `<abbr title="${dict[value]}">${value}</abbr>`
+			}
+			return;
+		});
+			return strings.reduce((sentence, string, i) => {
+				return `${sentence}${string}${abbreviated[i] || ''}`;
+		}, '');
+	}
+
+	const first = 'Wong';
+	const last = 'Ken';
+	const sentence = addAbbreviations`Hello my name is ${first} ${last} and I love to code ${'HTML'}, ${'CSS'} and ${'JS'}`;
+
+	const bio = document.querySelector('.bio');
+	const p = document.createElement('p');
+	p.innerHTML = sentence;
+	bio.appendChild(p);
+
+</script>

@@ -1,0 +1,31 @@
+<script type="text/javascript">
+	const inventory = {
+		backpacks: 10,
+		jeans: 23,
+		hoodies: 4,
+		shoes: 11
+	};
+
+	console.log(Object.entries(inventory));
+	console.log(Object.keys(inventory));
+
+
+	// Make a nav for the inventory
+	const nav = Object.keys(inventory).map(item => `<li>${item}</li>`).join('');
+	console.log(nav);
+
+	// tell us how many values we have
+	const totalInventory = Object.values(inventory).reduce((a, b) => a + b);
+	console.log(totalInventory);
+
+	// print an inventory list with numbers
+	Object.entries(inventory).forEach(([key, val]) => {
+		console.log(key, val);
+	});
+
+	for (const [key, val] of Object.entries(inventory)) {
+		console.log(key);
+		if(key === 'jeans') break;
+	}
+
+</script>

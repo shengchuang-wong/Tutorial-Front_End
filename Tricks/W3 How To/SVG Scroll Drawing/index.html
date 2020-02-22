@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scroll Drawing</title>
+	<style type="text/css">
+		body {
+			height: 2000px;
+			background: #f1f1f1;
+		}
+
+		#mySVG {
+			position: fixed;
+			top: 15%;
+			width: 400px;
+			height: 210px;
+			margin-left: -50px;
+		}
+	</style>
+</head>
+<body>
+
+	<svg id="mySVG">
+		<path fill="none" stroke="red" stroke-width="3" id="triangle" d="M150 0 L75 200 L225 200 Z">
+		Sorry, your browser does not support inline SVG.
+	</svg>
+
+	<script type="text/javascript">
+		
+	// Get the SVG element and length of the path
+	var triangle = document.getElementById("triangle");
+	var length = triangle.getTotalLength();
+
+	// The start position of drawing
+	triangle.style.strokeDasharray = length;
+
+	// Find scroll percentage on scroll (using cross-browser properties), and offset dash same amount as percentage scrolled
+	window.addEventListener("scroll", drawSVG);
+
+	function drawSVG() {
+		var scrollpercent = (document.body.scrollTop || document.documentElement.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+
+		var draw = length * scrollpercent;
+
+		triangle.style.strokeDashoffset = length - draw; 
+	}
+
+	</script>
+</body>
+</html>

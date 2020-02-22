@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scrollbar Height</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+	function getScrollBarWidth() {
+
+		var el = document.createElement("p"),
+		styles = {
+			width: "100px",
+			height: "100px"
+		}, 
+		i,
+		clientWidth1,
+		clientWidth2,
+		scrollBarWidth;
+
+		for(i in styles) {
+			el.style[i] = styles[i];
+		}
+
+		document.body.appendChild(el);
+
+		clientWidth1 = el.clientWidth;
+		el.style.overflowY = "scroll";
+		clientWidth2 = el.clientWidth;
+
+
+		var scrollBarWidth = clientWidth1 - clientWidth2;
+
+		el.remove();
+
+		return scrollBarWidth;
+	}
+
+	console.log(getScrollBarWidth());
+
+	</script>
+
+</body>
+</html>

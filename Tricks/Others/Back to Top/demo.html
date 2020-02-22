@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>Javascript - Back to Top</title>
+    <style type="text/css">
+		.box {
+			width: 1190px;
+			margin: 0 auto;
+		}
+		
+		#btn {
+			display: none;
+			width: 40px;
+			height: 40px;
+			position: fixed;
+			left:: 50%;
+			margin-left: 1400px;
+			bottom: 30px;
+			background: url(images/top_bg.png) no-repeat left top;
+		}
+		
+		#btn:hover {
+			background: url(images/top_bg.png) no-repeat left -40px;
+		}
+	</style>
+    <script type="text/javascript">
+		window.onload = function() {
+			var oBtn = document.getElementById("btn");
+			var timer = null;
+			var isTop = true;
+			var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+			
+			window.onscroll = function() {
+				var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+				if(osTop >= clientHeight) {
+					oBtn.style.display = "block";
+				}
+				else {
+					oBtn.style.display = "none";
+				}
+
+				if(!isTop) {
+					clearInterval(timer);
+				}
+				isTop = false;
+			}
+			
+			oBtn.onclick = function() {
+				timer = setInterval(function(){
+					var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+					var ispeed = Math.floor(-osTop / 6);
+					
+					document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
+					
+					isTop = true;
+					if(osTop == 0) {
+						clearInterval(timer);
+					}
+				}, 30);
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+    	<img src="images/tb_bg.jpg" />
+    </div>
+    <a href="javascript:;" id="btn" title="Back to Top"></a>
+</body>
+</html>

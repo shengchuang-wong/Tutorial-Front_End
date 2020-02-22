@@ -1,0 +1,40 @@
+<script>
+var colors = ['red', 'blue', 'green'];
+
+// ES5
+
+for (var i = 0; i < colors.length; i++) {
+	console.log(colors[i]);
+}
+
+// ES6
+
+colors.forEach(function(color) {
+	console.log(color);
+});
+
+
+// Full ES6
+
+colors.forEach(color => console.log(color));
+
+// create an array of numbers
+var numbers = [1,2,3,4,5];
+
+// create a variable to hold the sum
+var sum = 0;
+
+// loop over the array, incrementing the sum variable
+numbers.forEach(num => sum += num);
+
+// OR
+
+function adder(number) {
+	sum += number;
+}
+
+numbers.forEach(adder);
+
+// print the sum variable
+console.log(sum);
+</script>

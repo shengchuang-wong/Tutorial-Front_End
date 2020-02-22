@@ -1,0 +1,132 @@
+<video controls class="handsome"></video>
+<script type="text/javascript">
+	
+	// Fetch example
+	fetch('https://api.github.com/users/webos').then(res => {
+		return res.json();
+	}).then(res => {
+		console.log(res);
+	}).catch(err => {
+		console.error('OH NO!!!!!!!');
+		console.error(err);
+	});
+
+	const video = document.querySelector('.handsome');
+
+	navigator.mediaDevices.getUserMedia({ video: true }).then(mediaStream => {
+		console.log(mediaStream);
+		video.srcObject = mediaStream;
+		video.load();
+		video.play();
+		// or 
+		// video.src = window.URL.createObjectURL(mediaStream)
+	}).catch(err => {
+		console.log(err);
+	});
+
+	// Chaining promises function
+	function breathe(amount) {
+		return new Promise((resolve, reject) => {
+			if(amount < 500) {
+				reject('That is too small of a value');
+			}
+			setTimeout(() => resolve(`Done for ${amount} ms`), amount);
+		});
+	}
+
+	breathe(1000).then(res => {
+		console.log(res);
+		return breathe(500);
+	}).then(res => {
+		console.log(res);
+	}).catch(err => {
+		console.error(err);
+		console.error('YOU SCHREWED UP');
+	});
+
+
+	// Async Await
+	const res = fetch('https://github.com');
+	console.log(res);
+
+	function catchErrors(fn) {
+		return function(...args) {
+			return fn(...args).catch((err) => {
+				console.error('Oh no!!!!');
+				console.error(err);
+			});
+		}
+	}
+
+	[1,2,3].map(function() {
+
+	})
+
+	async function go(name) {
+
+		console.log(`Starting for ${name}!!!`);
+		const res = await breathe(1200);
+		console.log(res);
+		const res2 = await breathe(200);
+		console.log(res2);
+		console.log('end');			
+
+	}
+
+	const wrappedFunction = catchErrors(go);
+
+	wrappedFunction('Wes');
+
+
+	// multiple promises
+	async function go_v2() {
+		// const p1 = fetch('https://api.github.com/users/wesbos').then(r => r.json());
+		// const p2 = fetch('https://api.github.com/users/stolinski').then(r => r.json());
+		const p1 = fetch('https://api.github.com/users/wesbos');
+		const p2 = fetch('https://api.github.com/users/stolinski');
+
+		// Wait for both of them to come back
+		const res = await Promise.all([p1, p2]);
+		const dataPrimises = res.map(r => r.json());
+		const [wes, scott] = Promise.all(dataPrimises);
+		console.log(wes, scott);
+	}
+
+	go_v2();
+
+
+	// Another example
+	async function getData() {
+		const promises = names.map(name => fetch(`https://api.github.com/users/${name}`).then(r => r.json()));
+		const people = await Promise.all(promises);
+		console.log(people);
+	}
+
+	getData(['wesbos', 'stolinski']);
+
+
+	// Promisfying Functions
+	// navigator.geolocation.getCurrentPosition(function(pos) {
+	// 	console.log('it worked!');
+	// 	console.log(pos);
+	// }, function(err) {
+	// 	console.log('it failed!');
+	// 	console.log(err);
+	// })
+
+	function getCurrentPosition() {
+		return new Promise((resolve, reject) => {
+			navigator.geolocation.getCurrentPosition(...args, resolve, reject)
+		});
+	}
+
+	async function go_v3() {
+		console.log('starting');
+		const pos = await getCurrentPosition();
+		console.log(pos);
+		console.log('finished');
+	}
+
+	go_v3();
+
+</script>

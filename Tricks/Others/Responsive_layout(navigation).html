@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Navigation Bar Responsive Layout</title>
+<style type="text/css">
+	body {
+		margin: 0 auto;
+	}
+	
+	ul {
+		padding: 0;
+		margin: 0;
+	}
+	
+	a {
+		text-decoration: none;
+		color: white;
+		font-size: 14px;
+		padding: 0 3px;
+		display: block;
+	}
+	
+	.menu li {
+		display: block;
+		float: left;
+		margin: 3px;
+		background-color: gray;
+		width: 140px;
+		text-align: center;
+		color: white;
+		font-size: 9pt;
+	}
+	
+	#logo {
+		background-color: white;
+		width: 230px;
+	}
+	
+	#logo a {
+		color: gray;
+		font-size: 35pt;
+		background-color: white;
+	}
+	
+	#topLogo {
+		display: none;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	#topLogo a {
+		color: black;
+		font-size: 35pt;
+	}
+	
+	.rMenu {
+		display: none;
+	}
+	
+	@media only screen and (min-width: 585px) and (max-width: 823px) {
+		#logo {
+			display: none;
+		}
+		
+		#topLogo {
+			display: block;
+			width: 100%;
+		}
+		
+		.menu {
+			width: 585px;
+		}
+	}
+	
+	@media only screen and (max-width: 585px) {
+		#logo {
+			display: none;
+		}
+		
+		#topLogo {
+			display: block;
+			width: 100%;
+		}
+		
+		.menu {
+			width: 100%;
+		}
+		
+		.menu li {
+			width: 100%;
+			visibility: hidden;
+			opacity: 0;
+			transition: 1s opacity;
+		}
+		
+		.rMenu {
+			display: block;
+			text-align: right;
+		}
+	}
+	
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+        $("#rList").on("click", function() {
+			if($("ul li").hasClass("active")) {
+				$("ul li").css("visibility", "hidden").removeClass("active");
+				$("ul li").css("opacity", "0");
+				$("ul li").css("transition", "1s opacity");
+			}
+			else {
+				$("ul li").css("visibility", "visible").addClass("active");
+				$("ul li").css("opacity", "1");
+				$("ul li").css("transition", "1s opacity");
+			}
+		});
+    });
+</script>
+</head>
+
+<body>
+<ul class="menu">
+    	<div id="topLogo">
+        	<a href="#">Muke Web</a>
+            <a href="#" id="rList" class="rMenu"><img src="images/btnBg.png" alt="" width="50px" height="50px" /></a>
+    </div>
+        <li><a href="#">Course</a><br />All IT Course Here!</li>
+        <li><a href="#">Learn Centre</a><br />Everyday Learning!</li>
+        <li id="logo"><a href="#">MukeWeb</a></li>
+        <li><a href="#">Account</a><br />Account Center / Change Password!</li>
+        <li><a href="#">About Us</a><br />Company Address / Career </li>
+    </ul>
+</body>
+</html>

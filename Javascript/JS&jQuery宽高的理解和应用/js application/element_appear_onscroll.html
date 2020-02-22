@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Onscroll</title>
+	<style type="text/css">
+
+		#div1 {
+			width: 100%;
+			height: 400px;
+			background-image: radial-gradient(#DEE, lightblue);
+			opacity: 1;
+			position: absolute;
+			top: 1200px;
+			opacity: 1;
+			left: -1000px;
+
+		}
+
+		@keyframes slideIn {
+			to {
+				opacity: 1;
+				left: 0;
+			}
+		}
+
+		p {
+			position: absolute;
+			top: 2000px;
+		}
+
+	</style>
+</head>	
+
+<body>
+
+	<div id="div1"></div>
+	<p>asd</p>
+	<script type="text/javascript">
+		
+	
+
+	function showDivs() {
+		var div = document.getElementById("div1");
+		var clients = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		var divTop = div.getBoundingClientRect().top;
+
+		if(divTop <= (clients - (div.offsetHeight / 2))) {
+			div.style.animation = "slideIn 2s ease-in-out forwards";
+		}
+	}
+
+	window.addEventListener("scroll", showDivs);
+
+	</script>
+
+</body>
+</html>

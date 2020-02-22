@@ -1,0 +1,11 @@
+<script type="text/javascript">
+	const strings = ['short', 'medium sizze', 'this is really really long'];
+	const longestString = strings.sort(str => str.length).map(str => str.length)[0];
+
+
+	strings.forEach(str => console.log(str.padStart(longestString)));
+
+	console.log('wes'.padStart(6));
+	console.log('wes'.padEnd(6, 'X'));
+
+</script>

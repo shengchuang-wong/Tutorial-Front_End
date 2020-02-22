@@ -1,0 +1,103 @@
+<head>
+  <meta charset="UTF-8">
+  <title>The ...Spread Operator</title>
+  <style>
+    body {
+      min-height: 100vh;
+      font-family: sans-serif;
+      background: #ffc600;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 50px;
+      color:white;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+    }
+    .jump span {
+      display: inline-block;
+      transition: transform 0.2s;
+      cursor:url('http://csscursor.info/source/santahand.png'), default;
+    }
+    .jump span:hover {
+      transform: translateY(-20px) rotate(10deg) scale(2);
+    }
+  </style>
+</head>
+<body>
+  <h2 class="jump">SPREADS!</h2>
+
+<script type="text/javascript">
+	
+	const featured = ['Deep Dish', 'Peperoni', 'Hawaiian'];
+	const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
+
+
+	// spread operator
+	const pizzas = [...featured, 'vegetable', ...specialty];
+
+	// this is just reference, both share the same data
+	const fridayPrizzas_bad = pizzas;
+
+	// instead, use this
+	const fridayPrizzas = [...pizzas];
+
+	const deepDish = {
+		pizzaName: 'Deep Dish',
+		size: 'Medium',
+		ingredients: ['Martinara', 'Italian Sausage', 'Dough', 'Cheese']
+	};
+
+
+	// letter animations
+	const heading = document.querySelector('.jump');
+	heading.innerHTML = sparanWrap(heading.textContent);
+	// const spans = sparanWrap(heading.textContent);
+	// console.log(spans);
+
+	function sparanWrap(word) {
+		return [...word].map(letter => `<span>${letter}</span>`).join('');
+	}
+
+
+	// 2. Convert NodeList into Array
+	const people = [...document.querySelectorAll('.people p')];
+
+	// Spread into function
+	const inventors = ['Einstein', 'Newton', 'Galileo'];
+	const newInventors = ['Musk', 'Jobs'];
+
+	// Traditional Approach
+	// inventors.push.apply(inventors, newInventors);
+	
+	inventors.push(...newInventors);
+
+	console.log(inventors);
+
+
+	/////////////////////////////////////////////////
+	const name = ['Wong', 'Ken'];
+
+	function sayHi(first, last) {
+		alert(`Hey there ${first} ${last}`);
+	}
+
+	sayHi(...name);
+
+
+	// ...Rest
+	function convertCurrency(rate, ...amounts) {
+		console.log(rate, amounts);
+		return amounts.map(amount => (amount * rate).toFixed(2));
+	}
+
+	const amounts = convertCurrency(1.54, 10, 23, 52, 1, 56);
+	console.log(amounts);
+
+
+	const runner = ['Wong Ken','AD00123', 5.5, 5, 3, 6, 35];
+	const [names, id, ...runs] = runner;
+	console.log(names, id, runs);
+
+</script>
+</body>

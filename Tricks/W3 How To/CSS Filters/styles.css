@@ -1,0 +1,48 @@
+figure {
+	float: left;
+}
+
+.blur {
+	-webkit-filter: blur(5px);
+	filter: blur(5px);
+}
+
+.brightness {
+	filter: brightness(130%);
+}
+
+.contrast {
+	filter: contrast(200%);
+}
+
+.drop-shadow {
+	filter: drop-shadow(8px 8px 10px skyblue);
+}
+
+.grayscale {
+	filter: grayscale(50%);
+}
+
+.hue-rotate {
+	filter: hue-rotate(90deg);
+}
+
+.invert {
+	filter: invert(100%);
+}
+
+.opacity {
+	filter: opacity(30%);
+}
+
+.saturate {
+	filter: saturate(800%);
+}
+
+.sepia {
+	filter: sepia(100%);
+}
+
+.multiple-filters {
+	filter: contrast(200%) brightness(120%);
+}

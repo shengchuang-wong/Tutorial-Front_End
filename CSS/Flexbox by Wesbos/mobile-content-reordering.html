@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FlexBox Nav</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style-reordering.css">
+</head>
+<body>
+	<div class="wrapper">
+
+		<header class="top">
+			<h1><a>What The Flexbox?!</a></h1>
+		</header>
+
+		<nav class="flex-nav">
+		<a class="toggleNav"><i class="fa fa-bars" aria-hidden="true"></i> Menu</a>
+			<ul>
+
+				<li><a>Item 01</a></li>
+				<li><a>Item 02</a></li>
+				<li><a>Item 03</a></li>
+				<li><a>Item 04</a></li>
+				<li><a>Item 05</a></li>
+				<li><a>Item 06</a></li>
+				<li class="social">
+					<a>
+						<i class="fa fa-twitter"></i>
+					</a>
+				</li>
+
+				<li class="social">
+					<a>
+						<i class="fa fa-facebook"></i>
+					</a>
+				</li>	
+
+				<li class="social">
+					<a>
+						<i class="fa fa-github"></i>
+					</a>
+				</li>		
+
+				<li class="social">
+					<a>
+						<i class="fa fa-instagram"></i>
+					</a>
+				</li>
+
+			</ul>
+		</nav>
+
+		<section class="hero">
+			<img src="http://lorempixel.com/1000/600/abstract" alt="">
+		</section>
+
+		<section class="details">
+			<p>A simple video course to help you master FlexBox.</p>
+			<p>Sign up today to grab all the videos and exercises!</p>
+		</section>
+
+		<section class="signup">
+			<form action="" class="signup">
+				<input type="text" placeholder="Your Name">
+				<input type="email" placeholder="Email Address">
+				<input type="submit" value="Sign me up!">
+			</form>
+		</section>
+
+		<footer>
+			<p>&copy; Foundragon</p>
+		</footer>
+
+	</div>
+
+	<script
+	  src="https://code.jquery.com/jquery-3.1.1.js"
+	  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+	  crossorigin="anonymous"></script>
+
+	  <script type="text/javascript">
+	  	
+	  $(function() {
+	  	$(".toggleNav").on("click", function() {
+	  		//$(".flex-nav ul").slideToggle();
+	  		$(".flex-nav ul").toggleClass("open");
+	  	});
+	  });
+
+	  </script>
+
+</body>
+</html>

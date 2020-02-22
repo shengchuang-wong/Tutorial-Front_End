@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue js</title>
+</head>
+<body>
+
+    <div id="app">
+        <p v-if="show">You can see me!</p>
+        <p v-else>Now can see me!</p>
+        <template v-if="show">
+            <h1>Heading</h1>
+            <p>Inside a template</p>
+        </template>
+        <p v-show="show">v-show just hide instead of detach from HTML</p>
+        <p>Do you also see me?</p>
+        <button @click="show = !show">Switch</button>
+
+        <hr>
+
+        <ul>
+            <li v-for="(ingredient, i) in ingredients" :key="ingredient + i">{{ ingredient }} ({{ i }})</li>
+        </ul>
+        
+        <template v-for="(ingredient, index) in ingredients">
+            <h1>{{ ingredient }}</h1>
+            <p>{{ index }}</p>
+        </template>
+
+        <button @click="ingredients.push('spices')">Add New</button>
+        <hr>
+        <ul>
+            <li v-for="person in persons">
+                {{ person.name }}
+                <div v-for="(value, key, index) in person">{{ key }} : {{ value }} ({{ index }})</div>
+            </li>
+        </ul>
+        <hr>
+            <span v-for="n in 10">{{ n }}</span>
+        <hr>
+    </div>
+    
+    <script src="./vue.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

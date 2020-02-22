@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+</head>
+
+<style type="text/css">
+	
+	body {
+		background-color: #349;
+		color: white;
+	}
+
+	a {
+		color: white;
+	}
+
+	.main-nav {
+		list-style: none;
+		padding-left: 0;
+	}
+
+	.main-nav li {
+		float: left;
+		background-color: #45a;
+		margin-right: 10px;
+		text-align: center;
+		font-family: "Arial Narrow", Arial, sans-serif;
+		font-size: 14px;
+		width: 140px;
+		height: 30px;
+		text-transform: uppercase;
+		overflow: hidden;
+	}
+
+	.main-nav li a {
+		line-height: 30px;
+		text-decoration: none;
+		display: block;
+		width: 140px;
+		height: 60px;
+		position: relative;
+		top: 0;
+		transition: all .5s;
+	}
+
+	.main-nav li a::after {
+		content: attr(data-title);
+		display: block;
+		font-weight: bold;
+		width: 140px;
+		height: 30px;
+	}
+
+	.main-nav li a:hover {
+		top: -30px;
+		background-color: #273990;
+	}
+
+</style>
+
+<body>
+
+	<nav>
+		<ul class="main-nav">
+			<li><a href="#" data-title="Home">Home</a></li>
+			<li><a href="#" data-title="About Us">About Us</a></li>
+			<li><a href="#" data-title="Products">Products</a></li>
+			<li><a href="#" data-title="Blog">Blog</a></li>
+			<li><a href="#" data-title="Contact Us">Contact Us</a></li>
+		</ul>	
+	</nav>
+
+	<script type="text/javascript">
+		
+	</script>
+
+</body>
+</html>

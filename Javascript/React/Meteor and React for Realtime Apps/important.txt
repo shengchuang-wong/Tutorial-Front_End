@@ -1,0 +1,2 @@
+All the node_modules in meteor project is deleted, and not sure have problem or not when launch.
+Since the node modules is too deep unlike others project.

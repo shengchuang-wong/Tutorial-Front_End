@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	
+	<div id="app">
+		<input id="todo-text" type="text" v-model="userInput" />
+		<button v-on:click="addTodo">Add Todo</button>
+		<button v-on:click="clearTodos">Clear Todos</button>
+
+		<ul>
+			<li v-for="todo in todos"
+				v-on:click="removeTodo(todo)">
+				{{ todo }}
+			</li>
+			<!-- <li v-for="todo in todos">{{ todo.taskName }}</li> -->
+		</ul>
+	</div>
+
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				todos: [],
+				userInput: ''
+			},
+			methods: {
+				addTodo() {
+					if(this.userInput.trim() == '') {
+						return;
+					}
+					this.todos.push(this.userInput.trim());
+					this.userInput = '';
+					console.log(this.todos);
+				},
+				clearTodos() {
+					this.todos = [];
+					console.log(this.todos);
+				},
+				removeTodo(selectedTodo) {
+					this.todos = this.todos.filter(todo => todo !== selectedTodo);
+				}
+			}
+
+		});
+
+	</script>
+	
+</body>
+</html>

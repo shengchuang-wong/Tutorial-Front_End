@@ -1,0 +1,50 @@
+<script type="text/javascript">
+	
+	// promises - unresolve, resolved - then, rejected - catch
+
+	const promise = new Promise((resolve, reject) => {
+		reject();
+	});
+
+	promise.then(() => {
+		console.log('finally finished');
+	})
+	.then(() => {
+		console.log('me too, finished');
+	})
+	.catch(() => {
+		console.log('wrong');
+	});
+
+	console.log(promise);
+
+	const promise1 = new Promise((resolve, reject) => {
+		
+		var request = new XHTMLRequest();
+
+		request.onload = () => {
+			resolve();
+		};
+
+	});
+
+	console.log(promise1);
+
+	// Fetch
+
+	url = "https://jsonplaceholder.typicode.com/posts/";
+
+	// fetch(url)
+	// 	.then(data => console.log(data));
+
+	fetch(url)
+		.then(response => response.json())
+		.then(data => console.log(data));
+
+	// Shortcoming of fetch - catch not working as expected, but domain change instead of path (reading problem), working
+
+	fetch(url)
+		.then(data => console.log(data))
+		.catch(error => console.log('something wrong somewhere', error));
+
+</script>

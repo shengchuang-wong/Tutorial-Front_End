@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slideshow</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+
+	<div class="slideshow-container">
+		
+		<div class="mySlides fade">
+			<div class="number-text">1 / 4</div>
+			<img src="images/z1.png" style="width: 100%">
+			<div class="caption-text">Caption One</div>
+		</div>
+
+		<div class="mySlides fade">
+			<div class="number-text">2 / 4</div>
+			<img src="images/z2.png">
+			<div class="caption-text">Caption Two</div>
+		</div>
+
+		<div class="mySlides fade">
+			<div class="number-text">3 / 4</div>
+			<img src="images/z3.png">
+			<div class="caption-text">Caption Three</div>
+		</div>
+
+		<div class="mySlides fade">
+			<div class="number-text">4 / 4</div>
+			<img src="images/z4.jpg">
+			<div class="caption-text">Caption Four</div>
+		</div>
+
+		<a id="prevBtn" class="prev">&#10094;</a>
+		<a id="nextBtn" class="next">&#10095;</a>
+
+	</div>
+
+	<br>
+
+	<div class="dot-container">
+		<span class="dot" onclick="currentSlide(1)"></span>
+		<span class="dot" onclick="currentSlide(2)"></span>
+		<span class="dot" onclick="currentSlide(3)"></span>
+		<span class="dot" onclick="currentSlide(4)"></span>
+	</div>
+	
+
+	<script src="js/scripts.js"></script>
+</body>
+</html>

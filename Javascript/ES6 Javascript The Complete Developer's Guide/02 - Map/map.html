@@ -1,0 +1,29 @@
+<script type="text/javascript">
+
+	var numbers = [1,2,3];
+	var doubleNumbers = [];
+
+	// ES5
+
+	for (var i = 0; i < numbers.length; i++) {
+		doubleNumbers.push(numbers[i] * 2);
+	}
+
+	console.log(doubleNumbers);
+
+	// ES6
+
+	var doubleNumbers = numbers.map(number => number * 2);
+
+	console.log(doubleNumbers);
+
+	var cars = [
+		{ model: 'Proton Sage', price: 'cheap' },
+		{ model: 'Skyline GTR', price: 'expensive' }
+	];
+
+	var prices = cars.map(car => car.price);
+
+	console.log(prices);
+
+</script>
