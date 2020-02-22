@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    div:nth-child(2) {
+        margin-top: 150vh;
+        color: red;
+    }
+</style>
+</head>
+
+<body>
+
+    <h1>Scroll to know is the element visible in current scroll</h1>
+
+    <div>asd</div>
+
+    <div>asd</div>
+
+    <script>
+        let element = document.querySelector('div');
+        let element2 = document.querySelectorAll('div')[1];
+
+        var io = new IntersectionObserver(
+            entries => {
+                console.log(entries);
+            },
+            {
+                /* Using default options. Details below */
+            }
+        );
+        // Start observing an element
+        // io.observe(element);
+        io.observe(element2);
+
+    </script>
+</body>
+
+</html>

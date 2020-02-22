@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const channel = new BroadcastChannel('my_bus');
+
+        // Send a message on "my_bus".
+        // channel.postMessage('This is a test message.');
+
+        // Listen for messages on "my_bus".
+        channel.onmessage = function (e) {
+            console.log('Received', e.data);
+        };
+
+        // Close the channel when you're done.
+        // channel.close();
+
+    </script>
+</body>
+
+</html>

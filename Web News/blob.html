@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        window.URL = window.URL || window.webkitURL;
+
+        var blob = new Blob(['body { color: red; }'], { type: 'text/css' });
+
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = window.URL.createObjectURL(blob);
+        document.body.appendChild(link);
+
+    </script>
+</body>
+
+</html>

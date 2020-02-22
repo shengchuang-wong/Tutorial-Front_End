@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Check source code - can indicate the audio data by using the analyser</h1>
+    <script>
+
+        var audio = new Audio();
+        audio.src = 'test.ogg';
+        audio.controls = true;
+        audio.autoplay = true;
+        document.body.appendChild(audio);
+
+        var context = new AudioContext();
+        var analyser = context.createAnalyser();
+
+        // Wait for window.onload to fire. See crbug.com/112368
+        window.addEventListener('load', function (e) {
+            // Our <audio> element will be the audio source.
+            var source = context.createMediaElementSource(audio);
+            source.connect(analyser);
+            analyser.connect(context.destination);
+
+            rafCallback();
+            // ...call requestAnimationFrame() and render the analyser's output to canvas.
+        }, false);
+
+        function rafCallback(time) {
+            window.requestAnimationFrame(rafCallback, "canvas");
+        }
+
+    </script>
+</body>
+
+</html>

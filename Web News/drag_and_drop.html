@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dropzone {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 5px;
+            border: 2px inset #fafafa;
+            background: #222;
+            font-family: monospace;
+            color: #bf55ec;
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            text-align: center;
+            line-height: calc(300px - 40px);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dropzone">
+        <h2>Drop here</h2>
+    </div>
+
+    <script>
+        var dropzone = document.getElementById('dropzone');
+
+
+        window.addEventListener('drop', e => { e.preventDefault(); })
+        window.addEventListener('dragenter', e => { e.preventDefault(); })
+        window.addEventListener('dragover', e => { e.preventDefault(); })
+
+        dropzone.ondrop = function (e) {
+            e.preventDefault();
+            var length = e.dataTransfer.items.length;
+            for (var i = 0; i < length; i++) {
+                var entry = e.dataTransfer.items[i].webkitGetAsEntry();
+                if (entry.isFile) {
+                    // do whatever you want
+                    console.log('isFile')
+                } else if (entry.isDirectory) {
+                    // do whatever you want
+                    console.log('isDirectory')
+                }
+                console.log(entry);
+            }
+        };  
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo</title>
+</head>
+
+<body>
+
+    <h1>Check tab visibility status</h1>
+
+    <div class="visibility"></div>
+    <div class="counter"></div>
+
+    <script>
+
+        const visibility = document.getElementsByClassName('visibility')[0];
+        const counter = document.getElementsByClassName('counter')[0];
+
+        let timer = 0;
+
+        window.addEventListener('load', () => {
+            visibility.textContent = `Visibility: ${document.hidden}`;
+            counter.textContent = `Hidden seconds: ${timer}`;
+        });
+
+        // let visibilityChange;
+        // if (typeof document.hidden !== "undefined") {
+        //     visibilityChange = "visibilitychange";
+        // } else if (typeof document.msHidden !== "undefined") {
+        //     visibilityChange = "msvisibilitychange";
+        // } else if (typeof document.webkitHidden !== "undefined") {
+        //     visibilityChange = "webkitvisibilitychange";
+        // }
+
+
+        let incInterval;
+
+        window.addEventListener('visibilitychange', (e) => {
+
+
+            // document.webkitVisibilityState will return a string indicating the current state, one of visible, hidden, and prerendered
+            let notDisplay = document.visibilityState;
+
+            // document.webkitHidden is a boolean value indicating if the current page is hidden
+            let isHidden = document.hidden;
+
+            clearInterval(incInterval);
+            if(isHidden) {
+                incInterval = setInterval(() => {
+                    console.log('ok');
+                    timer++;
+                }, 1000);
+            }
+ 
+            visibility.textContent = `Visibility: ${document.hidden}`;
+            counter.textContent = `Hidden seconds: ${timer}`;
+            // console.log(e);
+        });
+
+    </script>
+</body>
+
+</html>

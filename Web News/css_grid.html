@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Grid</title>
+    <style>
+        html,
+        body {
+            width: 100vw;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: grid;
+            text-align: center;
+            grid-template-rows: 150px auto 100px;
+            grid-template-columns: minmax(200px, 3fr) 9fr;
+            grid-template-areas: "header header" 
+                                 "nav    content" 
+                                 "nav    footer";
+        }
+
+        header {
+            background: pink;
+            grid-area: header;
+        }
+
+        nav {
+            background: cornflowerblue;
+            grid-area: nav;
+        }
+
+        main {
+            background: goldenrod;
+        }
+
+        footer {
+            background: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Header</h1>
+    </header>
+    <nav>
+        <h1>nav</h1>
+    </nav>
+    <main>
+        <h1>Main</h1>
+    </main>
+    <footer>
+        <h1>Footer</h1>
+    </footer>
+
+</body>
+
+</html>

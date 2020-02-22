@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>IndexedDB</h1>
+
+    <input type="text" class="text" placeholder="Text Input x work, click btn" />
+    <button class="btn">
+        Insert
+    </button>
+
+    <div class="note"></div>
+    <br><br>
+    <div class="textList"></div>
+
+    <script>
+
+        let db, transaction;
+
+        let note = document.querySelector('.note');
+        let btn = document.querySelector('.btn');
+        let text = document.querySelector('.text');
+        let textList = document.querySelector('.textList');
+
+        btn.addEventListener('click', addData);
+
+        window.addEventListener('load', () => {
+
+            window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+            // DON'T use "var indexedDB = ..." if you're not in a function.
+            // Moreover, you may need references to some window.IDB* objects:
+            window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+            window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+
+            note.innerHTML += '<li>App initialised.</li>';
+            // Gecko-only IndexedDB temp storage option:
+            // var request = window.indexedDB.open("toDoList", {version: 4, storage: "temporary"});
+            var DBOpenRequest = window.indexedDB.open("myCustomDatabase", 4);
+
+            // these two event handlers act on the database being opened successfully, or not
+            DBOpenRequest.onerror = function (event) {
+                note.innerHTML += '<li>Error loading database.</li>';
+            };
+
+            DBOpenRequest.onsuccess = function (event) {
+                note.innerHTML += '<li>Database initialised.</li>';
+
+                // store the result of opening the database in the db variable. This is used a lot below
+                db = DBOpenRequest.result;
+
+                // Run the displayData() function to populate the task list with all the to-do list data already in the IDB
+                displayData();
+            };
+
+            DBOpenRequest.onupgradeneeded = function (event) {
+                var db = event.target.result;
+
+                db.onerror = function (event) {
+                    note.innerHTML += '<li>Error loading database.</li>';
+                };
+
+                // Create an objectStore for this database
+
+                var objectStore = db.createObjectStore("myCustomData", { keyPath: "id" });
+
+                // define what data items the objectStore will contain
+
+                objectStore.createIndex("id", "id", { unique: true });
+                objectStore.createIndex("title", "title", { unique: false });
+
+                note.innerHTML += '<li>Object store created.</li>';
+            };
+
+        });
+
+        function addData(e) {
+            var transaction = db.transaction(["myCustomData"], "readwrite");
+            var objectStore = transaction.objectStore("myCustomData");
+
+            var newItem = [
+                { id: Math.floor(Math.random() * 10000), title: "Cool" + Math.floor(Math.random() * 100) }
+            ];
+
+            var objectStoreRequest = objectStore.add(newItem[0]);
+            objectStoreRequest.onsuccess = function (event) {
+
+                // report the success of our request
+                // (to detect whether it has been succesfully
+                // added to the database, you'd look at transaction.oncomplete)
+                note.innerHTML += '<li>Request successful.</li>';
+
+                // clear the form, ready for adding the next entry
+                text.value = '';
+                displayData();
+            };
+
+        }
+
+        function displayData() {
+            // var objectStore = db.transaction('myCustomData').objectStore('myCustomData');
+            textList.innerHTML = "";
+
+            // Open our object store and then get a cursor list of all the different data items in the IDB to iterate through
+            var objectStore = db.transaction('myCustomData').objectStore('myCustomData');
+            objectStore.openCursor().onsuccess = function (event) {
+                var cursor = event.target.result;
+                // if there is still another cursor to go, keep runing this code
+                if (cursor) {
+                    var listItem = document.createElement('li');
+
+                    // build the to-do list entry and put it into the list item via innerHTML.
+                    listItem.innerHTML = cursor.value.id + ' — ' + cursor.value.title;
+
+                    listItem.setAttribute('data-id', cursor.value.id);
+                    listItem.onclick = function (event) {
+                        deleteData(event);
+                    }
+
+                    textList.appendChild(listItem);
+
+                    // continue on to the next item in the cursor
+                    cursor.continue();
+
+                    // if there are no more cursor items to iterate through, say so, and exit the function
+                } else {
+                    note.innerHTML += '<li>Entries all displayed.</li>';
+                }
+            }
+        }
+
+        function deleteData(event) {
+            event.stopPropagation();
+            var dataTask = event.target.getAttribute('data-id');
+
+            // open a database transaction and delete the task, finding it by the name we retrieved above
+            var transaction = db.transaction(["myCustomData"], "readwrite");
+            var request = transaction.objectStore("myCustomData").delete(Number(dataTask));
+
+            // report that the data item has been deleted
+            transaction.oncomplete = function () {
+                // delete the parent of the button, which is the list item, so it no longer is displayed
+                note.innerHTML += '<li>Task \"' + dataTask + '\" deleted.</li>';
+            };
+
+            displayData();
+        }
+
+    </script>
+</body>
+
+</html>

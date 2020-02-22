@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Powerful Console</title>
+</head>
+<body>
+
+    <div class="myDiv">
+        <h1>Powerful Console</h1>
+    </div>
+
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+
+    <h3>In Console</h3>
+    <ol>
+        <li>inspect(element) will directly navigate to the element</li>
+        <li>$0 will directly print out the element that is selected in inspect</li>
+        <li>$$('div') you can get all element with div in the dom</li>
+        <li>monitorEvents($$('textarea')[0]) you can get all the event with the dom element</li>
+        <li>monitorEvents($$('textarea')[0], 'key') you can get all the KEY event with the dom element</li>
+        <li>keys(document)</li>
+        <li>values(document)</li>
+        <li>copy('123') 123 will be directly copied into your clipboard</li>
+    </ol>
+
+    <script>
+        // check the execution seconds
+        console.time('create div');
+        let div = document.createElement('div');
+        console.timeEnd('create div');
+
+
+        let myDiv = document.getElementsByClassName('myDiv')[0];
+        console.log(myDiv);
+        // get dom element print out with attributes
+        // use dir(myDiv) directly in console
+        console.dir(myDiv);
+
+    </script>
+</body>
+</html>

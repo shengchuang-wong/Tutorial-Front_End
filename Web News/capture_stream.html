@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Capture Stream</h1>
+
+    <video id="leftVideo" playsinline controls loop muted>
+        <source src="./frag_bunny.mp4" type="video/mp4" />
+        <p>This browser does not support the video element.</p>
+    </video>
+
+    <video id="rightVideo" playsinline autoplay></video>
+
+    <script>
+
+        var leftVideo = document.getElementById('leftVideo');
+        var rightVideo = document.getElementById('rightVideo');
+        let channel;
+
+        leftVideo.addEventListener('canplay', () => {
+            const stream = leftVideo.captureStream();
+            rightVideo.srcObject = stream;
+        });
+
+    </script>
+</body>
+
+</html>

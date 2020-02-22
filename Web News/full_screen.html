@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .div {
+        margin: 20px;
+        border-radius: 5px;
+        background: #ddd;
+        color: #222;
+        border: 1px solid #777;
+        text-align: center;
+        padding: 20px;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    div:-webkit-full-screen {
+        width: 100% !important;
+    }
+
+    div:-moz-full-screen {
+        width: 100% !important;
+    }
+
+    div:-ms-fullscreen {
+        width: 100% !important;
+    }
+
+    div:fullscreen {
+        width: 100% !important;
+    }
+
+    /* While in fullscreen, hide any children with class 'tohide' */
+    :-webkit-full-screen .tohide {
+        display: none;
+    }
+
+    :-moz-full-screen .tohide {
+        display: none;
+    }
+
+    :-ms-fullscreen .tohide {
+        display: none;
+    }
+
+    :fullscreen .tohide {
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="div">
+        <h1>The Element</h1>
+        <button class="btn">Toggle Full Screen</button>
+    </div>
+
+    <script>
+
+        let btn = document.querySelector('button');
+        let div = document.querySelector('div');
+
+        let isFullScreen = false;
+        btn.addEventListener('click', () => {
+
+            if (!isFullScreen) {
+                div.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                // div.mozRequestFullScreen();
+                // div.msRequestFullscreen();
+                // div.requestFullscreen(); // standard
+            } else {
+                document.webkitExitFullscreen();
+                // document.mozCancelFullScreen();
+                // document.msExitFullscreen();
+                // document.exitFullscreen();
+            }
+
+            isFullScreen = !isFullScreen;
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Use once is more memory efficiences, since the entire scoped is candidates for garbage collection</h1>
+
+    <button class="element">Click Me</button>
+
+    <script>
+
+        let element = document.getElementsByClassName('element')[0];
+
+        element.addEventListener('click', myClickHandler, {
+            once: true,
+            passive: true,
+            capture: true
+        });
+
+        function myClickHandler() {
+            console.log('button clicked.');
+        }
+
+
+        // manually clean up
+        element.addEventListener('click', function cb(event) {
+            // ...one-time handling of the click event...
+            console.log('good');
+            event.currentTarget.removeEventListener(event.type, cb);
+        });
+
+    </script>
+</body>
+
+</html>

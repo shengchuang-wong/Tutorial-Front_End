@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        dialog {
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+        }
+
+        dialog::backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <dialog>
+        <h1>The Dialog</h1>
+        <p>So cool!</p>
+    </dialog>
+
+    <button class="btn">Show Dialog</button>
+    <button class="btn2">Show Dialog Modal - Esc key for exit</button>
+
+    <script>
+
+        const btn = document.getElementsByClassName('btn')[0];
+        const btn2 = document.getElementsByClassName('btn2')[0];
+        const dialog = document.querySelector('dialog');
+
+        btn.addEventListener('click', () => {
+            dialog.show();
+        });
+
+        btn2.addEventListener('click', () => {
+            dialog.showModal();
+        });
+
+        // just illustration on how to get input data in dialog
+        document.querySelector('#close').onclick = function () {
+            var value = document.querySelector('#return_value').value;
+            dialog.close(value);
+        };
+        document.querySelector('dialog').addEventListener('close', function () {
+            alert(this.returnValue);
+        });
+
+    </script>
+
+</body>
+
+</html>
